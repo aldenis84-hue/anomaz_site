@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Нормативы — АНО «МАЦ „Защита"»</title>
+  <style>
+    :root { --primary-dark: #071D38; --accent-gold: #D4AF37; --bg-light: #F2F5F9; --text-main: #263445; --text-muted: #5A6678; --white: #FFFFFF; --border-gray: #E3E9F2; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: Arial, sans-serif; color: var(--text-main); line-height: 1.6; background: var(--white); }
+    
+    .site-header { background: var(--primary-dark); color: var(--white); padding: 2rem 1rem 1.5rem; text-align: center; }
+    .site-header img { height: 150px; width: auto; display: inline-block; border-radius: 50%; box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+    .site-title { font-size: 2rem; font-weight: bold; margin: 1rem 0 0.5rem; line-height: 1.25; }
+    .site-subtitle { color: var(--accent-gold); font-size: 1.1rem; margin: 0; }
+    
+    .main-nav { background: var(--primary-dark); padding: 0 1rem 1.25rem; text-align: center; }
+    .main-nav a { display: inline-block; color: var(--white); text-decoration: none; margin: 0 0.5rem; font-size: 0.95rem; padding-bottom: 4px; border-bottom: 2px solid transparent; transition: color 0.2s; }
+    .main-nav a:hover { color: var(--accent-gold); }
+    .main-nav a.active { border-bottom-color: var(--accent-gold); }
+    
+    .cta-buttons { background: var(--primary-dark); padding: 0 1rem 1.75rem; text-align: center; }
+    .cta-btn { display: inline-block; border: 1.5px solid var(--accent-gold); color: var(--white); padding: 0.75rem 1.5rem; border-radius: 0.5rem; text-decoration: none; font-weight: bold; font-size: 0.9rem; margin: 0.25rem; transition: all 0.2s; background: transparent; }
+    .cta-btn:hover { background: var(--accent-gold); color: var(--primary-dark); }
+    
+    .section { padding: 3.5rem 1rem; }
+    .container { max-width: 900px; margin: 0 auto; }
+    .section-title { color: var(--primary-dark); font-size: 1.875rem; margin: 0 0 1rem; text-align: center; }
+    .section-subtitle { text-align: center; color: var(--text-muted); font-size: 1rem; margin: 0 0 2.5rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+    
+    .doc-group-title { color: var(--primary-dark); font-size: 1.4rem; margin: 2.5rem 0 1rem; border-bottom: 2px solid var(--accent-gold); padding-bottom: 0.5rem; }
+    .doc-group-title:first-child { margin-top: 0; }
+    
+    .doc-item { background: var(--white); border: 1px solid var(--border-gray); border-radius: 0.5rem; padding: 1.25rem; margin-bottom: 1rem; display: flex; gap: 1rem; align-items: flex-start; transition: border-color 0.2s; }
+    .doc-item:hover { border-color: var(--accent-gold); }
+    
+    .doc-num { background: var(--primary-dark); color: var(--accent-gold); font-weight: bold; font-size: 0.9rem; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+    
+    .doc-content { flex-grow: 1; }
+    .doc-title { color: var(--primary-dark); font-weight: bold; font-size: 1.05rem; margin-bottom: 0.25rem; }
+    .doc-title a { color: var(--primary-dark); text-decoration: none; border-bottom: 1px dashed var(--accent-gold); }
+    .doc-title a:hover { color: var(--accent-gold); }
+    .doc-desc { font-size: 0.9rem; color: var(--text-muted); margin: 0; }
+    .doc-link-icon { font-size: 0.8rem; color: var(--accent-gold); margin-left: 4px; }
+    
+    .pdf-icon { display: inline-block; background: #e74c3c; color: white; font-size: 0.7rem; padding: 2px 6px; border-radius: 3px; font-weight: bold; margin-right: 8px; vertical-align: middle; }
+    
+    .site-footer { background: var(--primary-dark); color: #C7D2E0; padding: 3rem 1rem 1.5rem; border-top: 1px solid rgba(212, 175, 55, 0.3); }
+    .footer-nav { text-align: center; margin-bottom: 2rem; }
+    .footer-nav a { color: #C7D2E0; text-decoration: none; font-size: 0.9rem; margin: 0 0.5rem; transition: color 0.2s; }
+    .footer-nav a:hover { color: var(--accent-gold); }
+    .contact-info { text-align: center; }
+    .org-name { font-weight: bold; font-size: 1rem; color: var(--white); margin-bottom: 0.5rem; }
+    .contact-info a { color: var(--accent-gold); text-decoration: none; }
+    .copyright { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.25rem; margin-top: 2rem; font-size: 0.8125rem; opacity: 0.7; text-align: center; }
+    
+    @media (max-width: 768px) {
+      .site-header img { height: 110px; }
+      .site-title { font-size: 1.5rem; }
+      .main-nav a { margin: 0 0.4rem; font-size: 0.85rem; }
+      .doc-item { flex-direction: column; gap: 0.5rem; }
+      .doc-num { margin-top: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <img src="logo.png" alt="Логотип АНО «МАЦ „Защита"»">
+    <div class="site-title">АНО «Межрегиональный антикоррупционный центр „Защита"»</div>
+    <div class="site-subtitle">Правовая помощь • Общественный контроль • Защита прав</div>
+  </header>
+
+  <nav class="main-nav">
+    <a href="index.html">Главная</a>
+    <a href="o-centre.html">О центре</a>
+    <a href="otkryt-priemnuyu.html">Открыть приёмную</a>
+    <a href="sozdat-napravlenie.html">Создать направление</a>
+    <a href="normativy.html" class="active">Нормативы</a>
+    <a href="kontakty.html">Контакты</a>
+  </nav>
+
+  <div class="cta-buttons">
+    <a href="obrashchenie.html" class="cta-btn">Подать обращение</a>
+    <a href="soobshchestvo.html" class="cta-btn">Стать членом сообщества</a>
+  </div>
+
+  <section class="section section-white">
+    <div class="container">
+      <h2 class="section-title">Нормативные правовые акты и документы</h2>
+      <p class="section-subtitle">
+        Настоящий перечень содержит основные российские и международные нормативные правовые акты, а также внутренние документы АНО «МАЦ „Защита"», которыми руководствуется Организация в своей деятельности. Нажмите на название, чтобы перейти к тексту.
+      </p>
+
+      <h3 class="doc-group-title">I. Федеральные законы</h3>
+
+      <div class="doc-item">
+        <div class="doc-num">1</div>
+        <div class="doc-content">
+          <div class="doc-title"><a href="http://www.kremlin.ru/acts/bank/28623" target="_blank">Федеральный закон от 25.12.2008 № 273-ФЗ «О противодействии коррупции» <span class="doc-link-icon">↗</span></a></div>
+          <div class="doc-desc">Основной закон, определяющий принципы, правовые и организационные основы противодействия коррупции.</div>
+        </div>
+      </div>
+      <div class="doc-item">
+        <div class="doc-num">2</div>
+        <div class="doc-content">
+          <div class="doc-title"><a href="https://www.kremlin.ru/acts/bank/17249" target="_blank">Федеральный закон от 07.08.2001 № 115-ФЗ «О противодействии легализации (отмыванию) доходов, полученных преступным путем, и финансированию терроризма» <span class="doc-link-icon">↗</span></a></div>
+          <div class="doc-desc">Направлен на защиту прав и законных интересов граждан, общества и государства путем создания правового механизма противодействия легализации преступных доходов.</div>
+        </div>
+      </div>
+      <div class="doc-item">
+        <div class="doc-num">3</div>
+        <div class="doc-content">
+          <div class="doc-title"><a href="http://www.kremlin.ru/acts/bank/21388" target="_blank">Федеральный закон от 27.07.2004 № 79-ФЗ «О государственной гражданской службе Российской Федерации» <span class="doc-link-icon">↗</span></a></div>
+          <div class="doc-desc">Устанавливает запреты и ограничения для государственных служащих.</div>
+        </div>
+      </div>
+      <div class="doc-item">
+        <div class="doc-num">4</div>
+        <div class="doc-content">
+          <div class="doc-title"><a href="http://www.kremlin.ru/acts/bank/36582" target="_blank">Федеральный закон от 03.12.2012 № 230-ФЗ «О контроле за соответствием расходов лиц, замещающих государственные должности, и иных лиц их доходам» <span class="doc-link-icon">↗</span></a></div>
+          <div class="doc-desc">Регулирует контроль за расходами должностных лиц.</div>
+        </div>
+      </div>
+      <div class="doc-item">
+        <div class="doc-num">5</div>
+        <div class="doc-content">
+          <div class="doc-title"><a href="http://publication.pravo.gov.ru/Document/View/0001201305080015" target="_blank">Федеральный закон от 07.05.2013 № 79-ФЗ «О запрете отдельным категориям лиц открывать и иметь счета (вклады) в иностранных банках...» <span class="doc-link-icon">↗</span></a></div>
+          <div class="doc-desc">Устанавливает ограничения на использование иностранных финансовых инструментов.</div>
+        </div>
+      </div>
+      <div class="doc-item">
+        <div class="doc-num">6</div>
+        <div class="doc-content">
+          <div class="doc-title"><a href="http://publication.pravo.gov.ru/Document/View/0001202112060055" target="_blank">Федеральный закон от 06.12.2021 № 409-ФЗ <span class="doc-link-icon">↗</span></a></div>
+          <div class="doc-desc">О внесении изменений в отдельные законодательные акты в части противодействия коррупции.</div>
+        </div>
+      </div>
+
+      <h3 class="doc-group-title">II. Указы Президента Российской Федерации</h3>
+
+      <div class="doc-item">
+        <div class="doc-num">1</div>
+        <div class="doc-content">
+          <div class="doc-title"><a href="http://www.kremlin.ru/acts/bank/18493" target="_blank">Указ Президента РФ от 12.08.2002 № 885 <span class="doc-link-icon">↗</span></a></div>
+          <div class="doc-desc">«Об утверждении общих принципов служебного поведения государственных служащих». Базовые этические нормы.</div>
+        </div>
+      </div>
+      <div class="doc-item">
+        <div class="doc-num">2</div>
+        <div class="doc-content">
+          <div class="doc-title"><a href="http://www.kremlin.ru/acts/bank/27311" target="_blank">Указ Президента РФ от 19.05.2008 № 815 <span class="doc-link-icon">↗</span></a></div>
+          <div class="doc-desc">«О мерах по противодействию коррупции». Системные меры по противодействию коррупции.</div>
+        </div>
+      </div>
+      <div class="doc-item">
+        <div class="doc-num">3</div>
+        <div class="doc-content">
+          <div class="doc-title"><a href="http://www.kremlin.ru/acts/bank/29282" target="_blank">Указ Президента РФ от 18.05.2009 № 557 <span class="doc-link-icon">↗</span></a></div>
+          <div class="doc-desc">Утверждён перечень должностей, обязанных декларировать доходы.</div>
+        </div>
+      </div>
+      <div class="doc-item">
+        <div class="doc-num">4</div>
+        <div class="doc-content">
+          <div class="doc-title"><a href="http://www.kremlin.ru/acts/bank/29284" target="_blank">Указ Президента РФ от 18.05.2009 № 559 <span class="doc-link-icon">↗</span></a></div>
+          <div class="doc-desc">Порядок представления сведений о доходах и имуществе.</div>
+        </div>
+      </div>
+      <div class="doc-item">
+        <div class="doc-num">5</div>
+        <div class="doc-content">
+          <div class="doc-title"><a href="http://www.kremlin.ru/acts/bank/29789" target="_blank">Указ Президента РФ от 21.09.2009 № 1065 <span class="doc-link-icon">↗</span></a></div>
+          <div class="doc-desc">Проверка достоверности сведений, представляемых госслужащими.</div>
+        </div>
+      </div>
+      <div class="doc-item">
+        <div class="doc-num">6</div>
+        <div class="doc-content">
+          <div class="doc-title"><a href="http://www.kremlin.ru/acts/bank/31059" target="_blank">Указ Президента РФ от 13.04.2010 № 460 (в части, не противоречащей действующему законодательству) <span class="doc-link-icon">↗</span></a></div>
+          <div class="doc-desc">Национальная стратегия противодействия коррупции.</div>
+        </div>
+      </div>
+      <div class="doc-item">
+        <div class="doc-num">7</div>
+        <div class="doc-content">
+          <div class="doc-title"><a href="http://www.kremlin.ru/acts/bank/31422" target="_blank">Указ Президента РФ от 01.07.2010 № 821 <span class="doc-link-icon">↗</span></a></div>
+          <div class="doc-desc">Комиссии по соблюдению требований к служебному поведению.</div>
+        </div>
+      </div>
+      <div class="doc-item">
+        <div class="doc-num">8</div>
+        <div class="doc-content">
+          <div class="doc-title"><a href="http://publication.pravo.gov.ru/document/0001201304020003" target="_blank">Указ Президента РФ от 02.04.2013 № 309 <span class="doc-link-icon">↗</span></a></div>
+          <div class="doc-desc">Реализация положений ФЗ «О противодействии коррупции».</div>
+        </div>
+      </div>
+      <div class="doc-item">
+        <div class="doc-num">9</div>
+        <div class="doc-content">
+          <div class="doc-title"><a href="http://publication.pravo.gov.ru/Document/View/0001201304020004" target="_blank">Указ Президента РФ от 02.04.2013 № 310 <span class="doc-link-icon">↗</span></a></div>
+          <div class="doc-desc">Реализация положений ФЗ «О контроле за соответствием расходов...».</div>
+        </div>
+      </div>
+      <div class="doc-item">
+        <div class="doc-num">10</div>
+        <div class="doc-content">
+          <div class="doc-title"><a href="http://www.kremlin.ru/acts/bank/38572" target="_blank">Указ Президента РФ от 23.06.2014 № 460 <span class="doc-link-icon">↗</span></a></div>
+          <div class="doc-desc">Форма справки о доходах, расходах, имуществе.</div>
+        </div>
+      </div>
+      <div class="doc-item">
+        <div class="doc-num">11</div>
+        <div class="doc-content">
+          <div class="doc-title"><a href="http://publication.pravo.gov.ru/Document/View/0001201406240007" target="_blank">Указ Президента РФ от 23.06.2014 № 453 <span class="doc-link-icon">↗</span></a></div>
+          <div class="doc-desc">Изменения в акты по вопросам противодействия коррупции.</div>
+        </div>
+      </div>
+      <div class="doc-item">
+        <div class="doc-num">12</div>
+        <div class="doc-content">
+          <div class="doc-title"><a href="http://publication.pravo.gov.ru/Document/View/0001201507150026" target="_blank">Указ Президента РФ от 15.07.2015 № 364 <span class="doc-link-icon">↗</span></a></div>
+          <div class="doc-desc">Совершенствование организации деятельности в области противодействия коррупции.</div>
+        </div>
+      </div>
+      <div class="doc-item">
+        <div class="doc-num">13</div>
+        <div class="doc-content">
+          <div class="doc-title"><a href="http://www.kremlin.ru/acts/bank/40131" target="_blank">Указ Президента РФ от 10.10.2015 № 506 <span class="doc-link-icon">↗</span></a></div>
+          <div class="doc-desc">Порядок принятия наград иностранных государств и международных организаций.</div>
+        </div>
+      </div>
+      <div class="doc-item">
+        <div class="doc-num">14</div>
+        <div class="doc-content">
+          <div class="doc-title"><a href="http://publication.pravo.gov.ru/Document/View/0001201512220024" target="_blank">Указ Президента РФ от 22.12.2015 № 650 <span class="doc-link-icon">↗</span></a></div>
+          <div class="doc-desc">Порядок сообщения о личной заинтересованности, приводящей к конфликту интересов.</div>
+        </div>
+      </div>
+      <div class="doc-item">
+        <div class="doc-num">15</div>
+        <div class="doc-content">
+          <div class="doc-title"><a href="http://publication.pravo.gov.ru/Document/View/0001202012100034" target="_blank">Указ Президента РФ от 10.12.2020 № 778 <span class="doc-link-icon">↗</span></a></div>
+          <div class="doc-desc">Реализация положений ФЗ «О цифровых финансовых активах...».</div>
+        </div>
+      </div>
+      <div class="doc-item">
+        <div class="doc-num">16</div>
+        <div class="doc-content">
+          <div class="doc-title"><a href="http://publication.pravo.gov.ru/document/0001202510060013" target="_blank">Указ Президента РФ от 06.10.2025 № 709 <span class="doc-link-icon">↗</span></a></div>
+          <div class="doc-desc">«О дополнительных мерах по противодействию коррупции» (актуальный документ, заменивший Нацплан 2021–2024).</div>
+        </div>
+      </div>
+
+      <h3 class="doc-group-title">III. Постановления Правительства Российской Федерации</h3>
+
+      <div class="doc-item">
+        <div class="doc-num">1</div>
+        <div class="doc-content">
+          <div class="doc-title"><a href="http://publication.pravo.gov.ru/Document/View/0001201303150021" target="_blank">Постановление Правительства РФ от 13.03.2013 № 207 <span class="doc-link-icon">↗</span></a></div>
+          <div class="doc-desc">Проверка достоверности сведений руководителей федеральных государственных учреждений.</div>
+        </div>
+      </div>
+      <div class="doc-item">
+        <div class="doc-num">2</div>
+        <div class="doc-content">
+          <div class="doc-title"><a href="http://publication.pravo.gov.ru/Document/View/0001201307080020" target="_blank">Постановление Правительства РФ от 05.07.2013 № 568 <span class="doc-link-icon">↗</span></a></div>
+          <div class="doc-desc">Распространение ограничений на отдельные категории граждан.</div>
+        </div>
+      </div>
+      <div class="doc-item">
+        <div class="doc-num">3</div>
+        <div class="doc-content">
+          <div class="doc-title"><a href="http://publication.pravo.gov.ru/Document/View/0001201401090033" target="_blank">Постановление Правительства РФ от 09.01.2014 № 10 <span class="doc-link-icon">↗</span></a></div>
+          <div class="doc-desc">Порядок сообщения о получении подарков, их сдачи и выкупа.</div>
+        </div>
+      </div>
+      <div class="doc-item">
+        <div class="doc-num">4</div>
+        <div class="doc-content">
+          <div class="doc-title"><a href="http://publication.pravo.gov.ru/Document/View/0001201501220017" target="_blank">Постановление Правительства РФ от 21.01.2015 № 29 <span class="doc-link-icon">↗</span></a></div>
+          <div class="doc-desc">Правила сообщения о заключении трудового договора с бывшим государственным служащим.</div>
+        </div>
+      </div>
+
+      <h3 class="doc-group-title">IV. Международные акты</h3>
+      
+      <div class="doc-item">
+        <div class="doc-num">1</div>
+        <div class="doc-content">
+          <div class="doc-title"><a href="https://www.consultant.ru/document/cons_doc_LAW_121140/" target="_blank">Конвенция Организации Объединённых Наций против коррупции <span class="doc-link-icon">↗</span></a></div>
+          <div class="doc-desc">Принята 31.10.2003 резолюцией 58/4 Генеральной Ассамблеи ООН. Ратифицирована Федеральным законом от 08.03.2006 № 40-ФЗ.</div>
+        </div>
+      </div>
+      <div class="doc-item">
+        <div class="doc-num">2</div>
+        <div class="doc-content">
+          <div class="doc-title"><a href="https://www.consultant.ru/document/cons_doc_LAW_121544/" target="_blank">Конвенция об уголовной ответственности за коррупцию <span class="doc-link-icon">↗</span></a></div>
+          <div class="doc-desc">От 27.01.1999. Ратифицирована Федеральным законом от 25.07.2006 № 125-ФЗ.</div>
+        </div>
+      </div>
+      <div class="doc-item">
+        <div class="doc-num">3</div>
+        <div class="doc-content">
+          <div class="doc-title"><a href="https://www.consultant.ru/document/cons_doc_LAW_125992/" target="_blank">Конвенция по борьбе с подкупом иностранных должностных лиц при осуществлении международных коммерческих сделок <span class="doc-link-icon">↗</span></a></div>
+          <div class="doc-desc">Решение о присоединении принято Федеральным законом от 01.02.2012 № 3-ФЗ.</div>
+        </div>
+      </div>
+
+      <h3 class="doc-group-title">V. Документы АНО «МАЦ „Защита"»</h3>
+
+      <div class="doc-item">
+        <div class="doc-num">1</div>
+        <div class="doc-content">
+          <div class="doc-title"><span class="pdf-icon">PDF</span><a href="ustav.pdf" target="_blank">Устав АНО «МАЦ „Защита"» <span class="doc-link-icon">↗</span></a></div>
+          <div class="doc-desc">Основной учредительный документ Организации (утверждён Решением № 1 единственного учредителя).</div>
+        </div>
+      </div>
+      <div class="doc-item">
+        <div class="doc-num">2</div>
+        <div class="doc-content">
+          <div class="doc-title"><span class="pdf-icon">PDF</span><a href="polozhenie-o-politike.pdf" target="_blank">Положение об антикоррупционной политике <span class="doc-link-icon">↗</span></a></div>
+          <div class="doc-desc">Внутренний документ, определяющий принципы и методы противодействия коррупции в Организации.</div>
+        </div>
+      </div>
+      <div class="doc-item">
+        <div class="doc-num">3</div>
+        <div class="doc-content">
+          <div class="doc-title"><span class="pdf-icon">PDF</span><a href="polozhenie-o-priemnyh.pdf" target="_blank">Положение об общественных приёмных <span class="doc-link-icon">↗</span></a></div>
+          <div class="doc-desc">Регламентирует порядок работы и функции общественных приёмных Центра.</div>
+        </div>
+      </div>
+      <div class="doc-item">
+        <div class="doc-num">4</div>
+        <div class="doc-content">
+          <div class="doc-title"><span class="pdf-icon">PDF</span><a href="aksiomy.pdf" target="_blank">Аксиомы Организации <span class="doc-link-icon">↗</span></a></div>
+          <div class="doc-desc">Базовые принципы и идеологические основы деятельности Центра.</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-nav">
+        <a href="index.html">Главная</a>
+        <a href="o-centre.html">О центре</a>
+        <a href="otkryt-priemnuyu.html">Открыть приёмную</a>
+        <a href="sozdat-napravlenie.html">Создать направление</a>
+        <a href="normativy.html">Нормативы</a>
+        <a href="kontakty.html">Контакты</a>
+        <a href="politika.html">Политика конфиденциальности</a>
+      </div>
+      <div class="contact-info">
+        <div class="org-name">АНО «МАЦ „Защита"»</div>
+        <p style="font-size:0.9rem; opacity:0.75; margin:0 0 0.75rem;">Автономная некоммерческая организация «Межрегиональный антикоррупционный центр „Защита"». Краснодар.</p>
+        <p><a href="mailto:info@anomaz.ru">info@anomaz.ru</a></p>
+        <p><a href="tel:+70000000000">+7 (000) 000-00-00</a></p>
+      </div>
+      <div class="copyright">© 2026 АНО «МАЦ „Защита"». Все права защищены.</div>
+    </div>
+  </footer>
+
+</body>
+</html>

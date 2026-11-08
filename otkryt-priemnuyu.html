@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Открыть приёмную — АНО «МАЦ „Защита"»</title>
+  <style>
+    :root { 
+      --primary-dark: #071D38; 
+      --accent-gold: #D4AF37; 
+      --bg-light: #F2F5F9; 
+      --text-main: #263445; 
+      --text-muted: #5A6678; 
+      --white: #FFFFFF; 
+      --border-gray: #E3E9F2; 
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: Arial, sans-serif; color: var(--text-main); line-height: 1.6; background: var(--white); }
+    
+    /* ШАПКА */
+    .site-header { background: var(--primary-dark); color: var(--white); padding: 2rem 1rem 1.5rem; text-align: center; }
+    .site-header img { height: 150px; width: auto; display: inline-block; border-radius: 50%; box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+    .site-title { font-size: 2rem; font-weight: bold; margin: 1rem 0 0.5rem; line-height: 1.25; }
+    .site-subtitle { color: var(--accent-gold); font-size: 1.1rem; margin: 0; }
+    
+    /* МЕНЮ */
+    .main-nav { background: var(--primary-dark); padding: 0 1rem 1.25rem; text-align: center; }
+    .main-nav a { display: inline-block; color: var(--white); text-decoration: none; margin: 0 0.5rem; font-size: 0.95rem; padding-bottom: 4px; border-bottom: 2px solid transparent; transition: color 0.2s; }
+    .main-nav a:hover { color: var(--accent-gold); }
+    .main-nav a.active { border-bottom-color: var(--accent-gold); }
+    
+    /* КНОПКИ В ШАПКЕ */
+    .cta-buttons { background: var(--primary-dark); padding: 0 1rem 1.75rem; text-align: center; }
+    .cta-btn { display: inline-block; border: 1.5px solid var(--accent-gold); color: var(--white); padding: 0.75rem 1.5rem; border-radius: 0.5rem; text-decoration: none; font-weight: bold; font-size: 0.9rem; margin: 0.25rem; transition: all 0.2s; background: transparent; }
+    .cta-btn:hover { background: var(--accent-gold); color: var(--primary-dark); }
+    
+    /* ОБЩИЕ СЕКЦИИ */
+    .section { padding: 3.5rem 1rem; }
+    .section-light { background: var(--bg-light); }
+    .section-white { background: var(--white); }
+    .section-dark { background: var(--primary-dark); color: var(--white); }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .container-narrow { max-width: 850px; margin: 0 auto; }
+    .section-title { color: var(--primary-dark); font-size: 1.875rem; margin: 0 0 1rem; text-align: center; }
+    .section-subtitle { text-align: center; color: var(--text-muted); font-size: 1rem; margin: 0 0 2.5rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+
+    /* БЛОК 1: ГЕРОЙ */
+    .hero-content { max-width: 800px; margin: 0 auto; text-align: center; }
+    .hero-content h1 { color: var(--white); font-size: 2.2rem; margin-bottom: 1rem; }
+    .hero-content p.sub { font-size: 1.2rem; color: var(--accent-gold); margin-bottom: 1.5rem; font-weight: bold; }
+    .hero-content p.main { font-size: 1.05rem; opacity: 0.9; line-height: 1.7; }
+    
+    /* ПЛАШКА ДЛЯ УЧАСТНИКОВ */
+    .member-notice { background: rgba(212, 175, 55, 0.1); border: 1px solid var(--accent-gold); border-radius: 0.75rem; padding: 1.5rem; margin-top: 2rem; text-align: left; }
+    .member-notice p { margin: 0 0 1rem; font-size: 1rem; color: var(--white); }
+    .btn-member { display: inline-block; background: var(--accent-gold); color: var(--primary-dark); padding: 0.75rem 1.5rem; border-radius: 0.5rem; text-decoration: none; font-weight: bold; font-size: 0.95rem; transition: background 0.2s; }
+    .btn-member:hover { background: #e6c14a; }
+
+    /* БЛОК 2: ЧЕМ ЗАНИМАЕТСЯ */
+    .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+    .card { background: var(--white); border: 1px solid var(--border-gray); border-radius: 0.875rem; padding: 1.5rem; text-align: left; border-top: 4px solid var(--primary-dark); }
+    .card h3 { color: var(--primary-dark); font-size: 1.15rem; margin: 0 0 0.5rem; }
+    .card p { font-size: 0.95rem; color: var(--text-muted); margin: 0; }
+
+    /* БЛОК 3: КОМУ ДОВЕРИМ */
+    .trust-block { text-align: left; background: var(--bg-light); padding: 1.5rem; border-radius: 0.75rem; margin-bottom: 1rem; border-left: 4px solid var(--accent-gold); }
+    .trust-block p { font-size: 1.05rem; margin: 0; color: var(--text-main); }
+    
+    /* БЛОК 4: ПОДДЕРЖКА */
+    .support-text { font-size: 1.1rem; margin-bottom: 2rem; line-height: 1.7; }
+    .support-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; text-align: left; }
+    .support-card { background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 0.75rem; border-left: 3px solid var(--accent-gold); }
+    .support-card h3 { color: var(--accent-gold); font-size: 1.1rem; margin-bottom: 0.5rem; }
+    .support-card p { font-size: 0.95rem; opacity: 0.9; margin: 0; }
+
+    /* БЛОК 5: КАК ОТКРЫТЬ */
+    .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+    .step-item { text-align: center; padding: 1.5rem; background: var(--white); border-radius: 0.75rem; box-shadow: 0 4px 10px rgba(7,29,56,0.05); }
+    .step-item .num { font-size: 2rem; color: var(--accent-gold); font-weight: bold; margin-bottom: 0.5rem; }
+    .step-item h3 { color: var(--primary-dark); font-size: 1.1rem; margin-bottom: 0.5rem; }
+    .step-item p { font-size: 0.9rem; color: var(--text-muted); margin: 0; }
+
+    /* ФОРМА-АНКЕТА */
+    .form-box { background: var(--white); border: 1px solid var(--border-gray); border-radius: 1rem; padding: 2.5rem 2rem; box-shadow: 0 8px 30px rgba(7, 29, 56, 0.05); max-width: 800px; margin: 0 auto; }
+    .form-row { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .form-group { margin-bottom: 1.5rem; flex: 1 1 100%; }
+    .form-group.half { flex: 1 1 calc(50% - 0.5rem); min-width: 250px; }
+    .form-group label { display: block; font-weight: bold; margin-bottom: 0.5rem; color: var(--primary-dark); font-size: 0.95rem; }
+    
+    .form-group input[type="text"], .form-group input[type="tel"], .form-group input[type="email"], .form-group textarea, .form-group select { 
+      width: 100%; padding: 0.875rem; border: 1px solid var(--border-gray); border-radius: 0.5rem; font-family: inherit; font-size: 1rem; background-color: var(--white); 
+    }
+    .form-group select {
+      appearance: none; -webkit-appearance: none; -moz-appearance: none;
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23071D38' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+      background-repeat: no-repeat; background-position: right 1rem center; background-size: 1em; cursor: pointer;
+    }
+    
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline: none; border-color: var(--accent-gold); box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2); }
+    .form-group textarea { min-height: 100px; resize: vertical; }
+    
+    .file-upload-wrapper { border: 2px dashed var(--accent-gold); border-radius: 0.5rem; padding: 1.5rem; text-align: center; background: #fafbfc; cursor: pointer; transition: background 0.2s; }
+    .file-upload-wrapper:hover { background: #f0f4f8; }
+    .file-upload-wrapper input[type="file"] { display: none; }
+    .file-upload-label { cursor: pointer; display: block; }
+    .file-upload-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+    .file-upload-text { font-size: 0.95rem; color: var(--primary-dark); font-weight: bold; }
+    .file-upload-hint { font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem; }
+    .file-name-display { margin-top: 1rem; font-size: 0.85rem; color: var(--text-main); font-weight: bold; word-break: break-all; text-align: left; line-height: 1.4; }
+    
+    .checkbox-group { display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 1.5rem; font-size: 0.875rem; color: var(--text-muted); }
+    .checkbox-group input { margin-top: 0.25rem; width: auto; cursor: pointer; }
+    .submit-btn { display: inline-block; width: 100%; background: var(--accent-gold); color: var(--primary-dark); padding: 1rem; border: none; border-radius: 0.5rem; font-weight: bold; font-size: 1.1rem; cursor: pointer; transition: background 0.2s; }
+    .submit-btn:hover { background: #e6c14a; }
+    .submit-btn:disabled { background: #ccc; cursor: not-allowed; }
+
+    /* ПОДВАЛ */
+    .site-footer { background: var(--primary-dark); color: #C7D2E0; padding: 3rem 1rem 1.5rem; border-top: 1px solid rgba(212, 175, 55, 0.3); }
+    .footer-nav { text-align: center; margin-bottom: 2rem; }
+    .footer-nav a { color: #C7D2E0; text-decoration: none; font-size: 0.9rem; margin: 0 0.5rem; transition: color 0.2s; }
+    .footer-nav a:hover { color: var(--accent-gold); }
+    .contact-info { text-align: center; }
+    .org-name { font-weight: bold; font-size: 1rem; color: var(--white); margin-bottom: 0.5rem; }
+    .contact-info a { color: var(--accent-gold); text-decoration: none; }
+    .copyright { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.25rem; margin-top: 2rem; font-size: 0.8125rem; opacity: 0.7; text-align: center; }
+    
+    @media (max-width: 768px) {
+      .site-header img { height: 110px; }
+      .site-title { font-size: 1.5rem; }
+      .main-nav a { margin: 0 0.4rem; font-size: 0.85rem; }
+      .form-box { padding: 1.5rem; }
+      .form-group.half { flex: 1 1 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <img src="logo.png" alt="Логотип АНО «МАЦ „Защита"»">
+    <div class="site-title">АНО «Межрегиональный антикоррупционный центр „Защита"»</div>
+    <div class="site-subtitle">Правовая помощь • Общественный контроль • Защита прав</div>
+  </header>
+
+  <nav class="main-nav">
+    <a href="index.html">Главная</a>
+    <a href="o-centre.html">О центре</a>
+    <a href="otkryt-priemnuyu.html" class="active">Открыть приёмную</a>
+    <a href="sozdat-napravlenie.html">Создать направление</a>
+    <a href="normativy.html">Нормативы</a>
+    <a href="kontakty.html">Контакты</a>
+  </nav>
+
+  <div class="cta-buttons">
+    <a href="obrashchenie.html" class="cta-btn">Подать обращение</a>
+    <a href="soobshchestvo.html" class="cta-btn">Стать членом сообщества</a>
+  </div>
+
+  <!-- БЛОК 1: ГЕРОЙ -->
+  <section class="section section-dark">
+    <div class="container hero-content">
+      <h1>Станьте лицом Центра в своём регионе</h1>
+      <p class="sub">Откройте общественную приёмную АНО «МАЦ „Защита"» и помогите жителям и бизнесу вашего региона получить квалифицированную правовую поддержку, защиту от коррупции и помощь в сложных житейских и деловых ситуациях.</p>
+      <p class="main" style="margin-bottom: 1.5rem;">Общественная приёмная — это не просто офис. Это официальное представительство нашего Центра и главный инструмент взаимодействия с обществом. Открывая приёмную, <strong>вы становитесь одним из руководителей сообщества Центра</strong>, получаете официальный статус представителя и берете на себя ответственность за защиту прав в своем регионе. Именно через вас мы реализуем свою миссию — меняем ситуацию к лучшему.</p>
+      
+      <div class="member-notice">
+        <p><strong>Статус руководителя общественной приёмной могут получить участники сообщества АНО «МАЦ „Защита"», прошедшие проверку и согласование.</strong></p>
+        <p>Если вы ещё не являетесь участником, вы можете стать участником перейдя на страницу:</p>
+        <a href="soobshchestvo.html" class="btn-member">Стать участником сообщества</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- БЛОК 2: ЧЕМ ЗАНИМАЕТСЯ ПРИЁМНАЯ -->
+  <section class="section section-light">
+    <div class="container">
+      <h2 class="section-title">Чем занимается приёмная</h2>
+      <div class="cards-grid">
+        <div class="card">
+          <h3>Приём и защита граждан и бизнеса</h3>
+          <p>Осуществление личного приёма граждан, предпринимателей и представителей организаций. Помощь в разрешении споров, защита от незаконных проверок, административного давления и коррупционных проявлений.</p>
+        </div>
+        <div class="card">
+          <h3>Сопровождение в деловых и житейских вопросах</h3>
+          <p>Предоставление первичной правовой помощи по широкому спектру вопросов: от защиты прав потребителей и споров с ЖКХ до сопровождения бизнес-процессов и взаимодействия с госорганами.</p>
+        </div>
+        <div class="card">
+          <h3>Правовое просвещение и публичные мероприятия</h3>
+          <p>Проведение консультаций и семинаров для населения и предпринимателей. Повышение правовой грамотности и формирование нетерпимости к коррупции. Совместные мероприятия с органами государственной власти.</p>
+        </div>
+        <div class="card">
+          <h3>Аналитика и мониторинг</h3>
+          <p>Изучение причин нарушений, анализ обращений граждан и бизнеса, выявление системных проблем для подготовки докладов Правлению Центра. Участие в подготовке законодательных инициатив Центра.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- БЛОК 3: КОМУ МЫ ДОВЕРИМ -->
+  <section class="section section-white">
+    <div class="container-narrow">
+      <h2 class="section-title">Кому мы доверим эту роль?</h2>
+      <p style="text-align: center; font-size: 1.05rem; margin-bottom: 2rem; color: var(--text-main);">Мы ищем активных граждан, которые готовы взять на себя ответственность за защиту прав в своём регионе. <strong>Вам не обязательно быть юристом.</strong> Главное — ваше желание помогать людям и организаторские способности. Всю экспертную работу возьмут на себя специалисты Центра.</p>
+
+      <div class="trust-block">
+        <p>Вы — <strong>неравнодушный человек</strong> с активной гражданской позицией, готовый помогать, учиться и развиваться — <strong>вам к нам.</strong></p>
+      </div>
+      <div class="trust-block">
+        <p>Вы — <strong>юрист или правозащитник</strong>, с опытом или без, желающий расширить свою помощь — <strong>вам к нам.</strong></p>
+      </div>
+      <div class="trust-block">
+        <p>Вы — <strong>руководитель или предприниматель</strong>, обладающий организаторскими способностями, понимающий специфику бизнеса и готовый помогать коллегам — <strong>вам к нам.</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- БЛОК 4: ПОДДЕРЖКА -->
+  <section class="section section-dark">
+    <div class="container">
+      <h2 class="section-title" style="color: var(--white);">Вы открываете двери. Центр решает проблемы.</h2>
+      <p class="support-text" style="color: var(--white); text-align: center; max-width: 850px; margin-left: auto; margin-right: auto;">Наша концепция — в синергии. Вам не нужно быть экспертом во всем. Ваша задача — принять человека, выслушать и передать его вопрос в Центр. Дальше в работу включается вся экосистема Центра: профильные специалисты и влиятельные участники сообщества. Вы — лицо на месте, Центр — мозг и руки.</p>
+      
+      <div class="support-grid">
+        <div class="support-card">
+          <h3>Единая команда</h3>
+          <p>Вы не остаетесь один на один с проблемой. Центр собирает под каждый конкретный случай нужных специалистов — юристов, экономистов, бухгалтеров, экспертов по госзакупкам и других.</p>
+        </div>
+        <div class="support-card">
+          <h3>Влияние и связи</h3>
+          <p>В нашем Центре состоят крупные бизнесмены и чиновники разного уровня. Они подключаются к решению проблем в регионах, используя свой опыт, авторитет и связи.</p>
+        </div>
+        <div class="support-card">
+          <h3>Диалог с властью</h3>
+          <p>Центр берет на себя выстраивание грамотной коммуникации с надзорными органами и органами власти для защиты интересов обратившегося.</p>
+        </div>
+        <div class="support-card">
+          <h3>Методика и бренд</h3>
+          <p>Вы получаете официальный статус представителя, готовые алгоритмы работы, шаблоны документов и брендирование.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- БЛОК 5: КАК ОТКРЫТЬ -->
+  <section class="section section-light">
+    <div class="container">
+      <h2 class="section-title">Как открыть приёмную</h2>
+      <div class="steps-grid">
+        <div class="step-item">
+          <div class="num">1</div>
+          <h3>Заявка</h3>
+          <p>Заполняете форму-анкету внизу страницы, прикладываете документы.</p>
+        </div>
+        <div class="step-item">
+          <div class="num">2</div>
+          <h3>Проверка</h3>
+          <p>Отдел безопасности проверяет информацию, предоставленную в форме-анкете, и связывается с вами по возникшим вопросам.</p>
+        </div>
+        <div class="step-item">
+          <div class="num">3</div>
+          <h3>Собеседование</h3>
+          <p>Мы знакомимся, обсуждаем ваш опыт и концепцию работы в вашем регионе (включая работу с бизнес-сообществом).</p>
+        </div>
+        <div class="step-item">
+          <div class="num">4</div>
+          <h3>Согласование</h3>
+          <p>Подписание соглашения о сотрудничестве. Для утверждения вас в должности руководителя приёмной необходимо иметь статус участника сообщества.</p>
+        </div>
+        <div class="step-item">
+          <div class="num">5</div>
+          <h3>Запуск</h3>
+          <p>Вы получаете методические материалы, брендирование и начинаете приём граждан и предпринимателей.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- БЛОК 6: ФОРМА-АНКЕТА -->
+  <section class="section section-white">
+    <div class="container">
+      <h2 class="section-title">Анкета для открытия приёмной</h2>
+      <p class="section-subtitle">Пожалуйста, заполните все обязательные поля. Информация будет проверена отделом безопасности.</p>
+      
+      <div class="form-box">
+        <form action="https://formsubmit.co/ВАША_ПОЧТА@anomaz.ru" method="POST" enctype="multipart/form-data" id="mainForm">
+          
+          <input type="hidden" name="_subject" value="Заявка на открытие приёмной — сайт anomaz.ru">
+          <input type="hidden" name="_captcha" value="false"> 
+          <input type="hidden" name="_next" value="https://anomaz.ru/thanks.html">
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fio">ФИО *</label>
+              <input type="text" id="fio" name="ФИО" required placeholder="Иванов Иван Иванович">
+            </div>
+            <div class="form-group">
+              <label for="passport">Паспортные данные (серия, номер, кем и когда выдан) *</label>
+              <input type="text" id="passport" name="Паспортные_данные" required placeholder="00 00 000000, выдан...">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="address_reg">Адрес регистрации заявителя *</label>
+              <input type="text" id="address_reg" name="Адрес_регистрации" required placeholder="Город, улица, дом, квартира">
+            </div>
+            <div class="form-group">
+              <label for="address_office">Адрес будущей приёмной *</label>
+              <input type="text" id="address_office" name="Адрес_приёмной" required placeholder="Город, улица, дом (или планируемый район)">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group half">
+              <label for="phone">Телефон *</label>
+              <input type="tel" id="phone" name="Телефон" required placeholder="+7 (___) ___-__-__">
+            </div>
+            <div class="form-group half">
+              <label for="email">E-mail *</label>
+              <input type="email" id="email" name="Email" required placeholder="example@mail.ru">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group half">
+              <label for="activity">Текущий вид деятельности *</label>
+              <input type="text" id="activity" name="Вид_деятельности" required placeholder="Чем вы занимаетесь сейчас?">
+            </div>
+            <div class="form-group half">
+              <label for="office_status">Статус помещения *</label>
+              <select id="office_status" name="Статус_помещения" required>
+                <option value="" disabled selected>Выберите статус...</option>
+                <option value="В собственности">В собственности</option>
+                <option value="В аренде">В аренде</option>
+                <option value="Планируется">Планируется</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="socials">Ссылка на профиль в соцсетях (ВК, Telegram) — необязательно</label>
+            <input type="text" id="socials" name="Соцсети" placeholder="https://vk.com/...">
+          </div>
+
+          <div class="form-group">
+            <label for="motivation">Почему вы хотите открыть приёмную? *</label>
+            <textarea id="motivation" name="Мотивация" required placeholder="Кратко опишите вашу мотивацию..."></textarea>
+          </div>
+
+          <div class="form-group">
+            <label>Прикрепить документы (резюме, рекомендации — если есть)</label>
+            <div class="file-upload-wrapper">
+              <label for="file-upload" class="file-upload-label">
+                <div class="file-upload-icon">📎</div>
+                <div class="file-upload-text">Нажмите, чтобы выбрать файлы</div>
+                <div class="file-upload-hint">JPG, PNG, PDF, DOC. Фото сожмутся автоматически.</div>
+              </label>
+              <input id="file-upload" type="file" name="Файлы" multiple accept=".jpg,.jpeg,.png,.pdf,.doc,.docx">
+              <div id="file-name-display" class="file-name-display"></div>
+            </div>
+          </div>
+
+          <label class="checkbox-group">
+            <input type="checkbox" required>
+            <span>Я согласен(на) на обработку персональных данных в соответствии с <a href="politika.html">Политикой конфиденциальности</a> (152-ФЗ).</span>
+          </label>
+
+          <button type="submit" class="submit-btn" id="submitBtn">Отправить заявку на открытие приёмной</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-nav">
+        <a href="index.html">Главная</a>
+        <a href="o-centre.html">О центре</a>
+        <a href="otkryt-priemnuyu.html">Открыть приёмную</a>
+        <a href="sozdat-napravlenie.html">Создать направление</a>
+        <a href="normativy.html">Нормативы</a>
+        <a href="kontakty.html">Контакты</a>
+        <a href="politika.html">Политика конфиденциальности</a>
+      </div>
+      <div class="contact-info">
+        <div class="org-name">АНО «МАЦ „Защита"»</div>
+        <p style="font-size:0.9rem; opacity:0.75; margin:0 0 0.75rem;">Автономная некоммерческая организация «Межрегиональный антикоррупционный центр „Защита"». Краснодар.</p>
+        <p><a href="mailto:info@anomaz.ru">info@anomaz.ru</a></p>
+        <p><a href="tel:+70000000000">+7 (000) 000-00-00</a></p>
+      </div>
+      <div class="copyright">© 2026 АНО «МАЦ „Защита"». Все права защищены.</div>
+    </div>
+  </footer>
+
+  <script>
+    const fileInput = document.getElementById('file-upload');
+    const fileDisplay = document.getElementById('file-name-display');
+    const submitBtn = document.getElementById('submitBtn');
+
+    fileInput.addEventListener('change', async function(e) {
+      const files = e.target.files;
+      if (!files || files.length === 0) return;
+
+      fileDisplay.textContent = 'Обработка файлов, подождите...';
+      fileDisplay.style.color = '#D4AF37';
+      submitBtn.disabled = true;
+
+      const processedFiles = [];
+      
+      for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+        if (file.type.startsWith('image/')) {
+          try {
+            const compressed = await compressImage(file);
+            processedFiles.push(compressed);
+          } catch (err) {
+            processedFiles.push(file);
+          }
+        } else {
+          processedFiles.push(file);
+        }
+      }
+
+      const dataTransfer = new DataTransfer();
+      processedFiles.forEach(f => dataTransfer.items.add(f));
+      fileInput.files = dataTransfer.files;
+
+      let names = Array.from(fileInput.files).map(f => `${f.name} (${(f.size / 1024 / 1024).toFixed(2)} МБ)`);
+      fileDisplay.textContent = 'Выбрано: ' + names.join(', ');
+      fileDisplay.style.color = '#263445';
+      submitBtn.disabled = false;
+    });
+
+    function compressImage(file) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = function(event) {
+          const img = new Image();
+          img.src = event.target.result;
+          img.onload = function() {
+            const canvas = document.createElement('canvas');
+            let width = img.width;
+            let height = img.height;
+            const MAX_SIZE = 1920;
+            if (width > height) {
+              if (width > MAX_SIZE) { height *= MAX_SIZE / width; width = MAX_SIZE; }
+            } else {
+              if (height > MAX_SIZE) { width *= MAX_SIZE / height; height = MAX_SIZE; }
+            }
+            canvas.width = width;
+            canvas.height = height;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0, width, height);
+            canvas.toBlob((blob) => {
+              if (!blob) return resolve(file);
+              const newFile = new File([blob], file.name.replace(/\.[^/.]+$/, "") + ".jpg", { type: 'image/jpeg', lastModified: Date.now() });
+              resolve(newFile);
+            }, 'image/jpeg', 0.7);
+          };
+          img.onerror = reject;
+        };
+        reader.onerror = reject;
+      });
+    }
+  </script>
+</body>
+</html>

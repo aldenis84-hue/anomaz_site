@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Стать участником сообщества — АНО «МАЦ „Защита"»</title>
+  <style>
+    :root { 
+      --primary-dark: #071D38; 
+      --accent-gold: #D4AF37; 
+      --bg-light: #F2F5F9; 
+      --text-main: #263445; 
+      --text-muted: #5A6678; 
+      --white: #FFFFFF; 
+      --border-gray: #E3E9F2; 
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: Arial, sans-serif; color: var(--text-main); line-height: 1.6; background: var(--white); }
+    
+    /* ШАПКА */
+    .site-header { background: var(--primary-dark); color: var(--white); padding: 2rem 1rem 1.5rem; text-align: center; }
+    .site-header img { height: 150px; width: auto; display: inline-block; border-radius: 50%; box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+    .site-title { font-size: 2rem; font-weight: bold; margin: 1rem 0 0.5rem; line-height: 1.25; }
+    .site-subtitle { color: var(--accent-gold); font-size: 1.1rem; margin: 0; }
+    
+    /* МЕНЮ */
+    .main-nav { background: var(--primary-dark); padding: 0 1rem 1.25rem; text-align: center; }
+    .main-nav a { display: inline-block; color: var(--white); text-decoration: none; margin: 0 0.5rem; font-size: 0.95rem; padding-bottom: 4px; border-bottom: 2px solid transparent; transition: color 0.2s; }
+    .main-nav a:hover { color: var(--accent-gold); }
+    
+    /* КНОПКИ В ШАПКЕ */
+    .cta-buttons { background: var(--primary-dark); padding: 0 1rem 1.75rem; text-align: center; }
+    .cta-btn { display: inline-block; border: 1.5px solid var(--accent-gold); color: var(--white); padding: 0.75rem 1.5rem; border-radius: 0.5rem; text-decoration: none; font-weight: bold; font-size: 0.9rem; margin: 0.25rem; transition: all 0.2s; background: transparent; }
+    .cta-btn:hover { background: var(--accent-gold); color: var(--primary-dark); }
+    
+    /* ОБЩИЕ СЕКЦИИ */
+    .section { padding: 3.5rem 1rem; }
+    .section-light { background: var(--bg-light); }
+    .section-white { background: var(--white); }
+    .section-dark { background: var(--primary-dark); color: var(--white); }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .container-narrow { max-width: 850px; margin: 0 auto; }
+    .section-title { color: var(--primary-dark); font-size: 1.875rem; margin: 0 0 1rem; text-align: center; }
+    .section-subtitle { text-align: center; color: var(--text-muted); font-size: 1rem; margin: 0 0 2.5rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+
+    /* БЛОК 1: ГЕРОЙ */
+    .hero-content { max-width: 800px; margin: 0 auto; text-align: center; }
+    .hero-content h1 { color: var(--white); font-size: 2.2rem; margin-bottom: 1rem; }
+    .hero-content p.sub { font-size: 1.2rem; color: var(--accent-gold); margin-bottom: 1.5rem; font-weight: bold; }
+    .hero-content p.main { font-size: 1.05rem; opacity: 0.9; line-height: 1.7; text-align: left; }
+    
+    /* БЛОК 2: ДВА ПУТИ */
+    .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+    .card { background: var(--white); border: 1px solid var(--border-gray); border-radius: 0.875rem; padding: 2rem; text-align: left; border-top: 4px solid var(--accent-gold); }
+    .card h3 { color: var(--primary-dark); font-size: 1.3rem; margin: 0 0 1rem; }
+    .card p { font-size: 1rem; color: var(--text-muted); margin: 0 0 1rem; }
+    .card ul { margin: 0; padding-left: 1.2rem; color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; }
+
+    /* БЛОК 3: ЧТО ДАЁТ СТАТУС */
+    .benefits-list { list-style: none; padding: 0; margin: 0; }
+    .benefits-list li { background: var(--bg-light); padding: 1.5rem; border-radius: 0.75rem; margin-bottom: 1rem; border-left: 4px solid var(--accent-gold); font-size: 1.05rem; }
+    .benefits-list strong { color: var(--primary-dark); display: block; margin-bottom: 0.25rem; font-size: 1.1rem; }
+    
+    /* БЛОК 4: КАК СТАТЬ */
+    .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem; }
+    .step-column { background: var(--white); padding: 2rem; border-radius: 0.75rem; box-shadow: 0 4px 15px rgba(7,29,56,0.05); border-top: 4px solid var(--primary-dark); }
+    .step-column h3 { color: var(--primary-dark); font-size: 1.2rem; margin-top: 0; margin-bottom: 1rem; }
+    .step-column ol { padding-left: 1.2rem; margin: 0; color: var(--text-muted); font-size: 0.95rem; line-height: 1.8; }
+    .step-column li { margin-bottom: 0.5rem; }
+
+    /* БЛОК 5: УСЛОВИЯ */
+    .conditions-box { background: var(--bg-light); border-radius: 0.75rem; padding: 2rem; border-left: 4px solid var(--primary-dark); }
+    .conditions-box ul { margin: 0; padding-left: 1.2rem; line-height: 1.8; color: var(--text-main); }
+    .conditions-box li { margin-bottom: 1rem; }
+    .conditions-box li:last-child { margin-bottom: 0; }
+
+    /* БЛОК 6: CTA И ФОРМЫ */
+    .cta-buttons-bottom { text-align: center; margin-top: 2rem; margin-bottom: 3rem; }
+    .cta-buttons-bottom .cta-btn { border: 1.5px solid var(--accent-gold); color: var(--white); padding: 1rem 2rem; font-size: 1.05rem; background: transparent; margin: 0.5rem; }
+    .cta-buttons-bottom .cta-btn:hover { background: var(--accent-gold); color: var(--primary-dark); }
+    .cta-buttons-bottom .cta-btn.primary { background: var(--accent-gold); color: var(--primary-dark); }
+    .cta-buttons-bottom .cta-btn.primary:hover { background: #e6c14a; }
+
+    .forms-wrapper { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; margin-top: 2rem; }
+    .form-container { background: var(--white); padding: 2rem; border-radius: 1rem; box-shadow: 0 8px 30px rgba(7, 29, 56, 0.05); border: 1px solid var(--border-gray); }
+    .form-container h3 { color: var(--primary-dark); text-align: center; margin-top: 0; margin-bottom: 1.5rem; font-size: 1.3rem; }
+    
+    .form-group { margin-bottom: 1.25rem; }
+    .form-group label { display: block; font-weight: bold; margin-bottom: 0.5rem; color: var(--primary-dark); font-size: 0.95rem; }
+    .form-group input { width: 100%; padding: 0.875rem; border: 1px solid var(--border-gray); border-radius: 0.5rem; font-family: inherit; font-size: 1rem; background-color: var(--white); }
+    .form-group input:focus { outline: none; border-color: var(--accent-gold); box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2); }
+    
+    .checkbox-group { display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 1.5rem; font-size: 0.85rem; color: var(--text-muted); }
+    .checkbox-group input { margin-top: 0.25rem; width: auto; cursor: pointer; }
+    .submit-btn { display: inline-block; width: 100%; background: var(--accent-gold); color: var(--primary-dark); padding: 0.875rem; border: none; border-radius: 0.5rem; font-weight: bold; font-size: 1rem; cursor: pointer; transition: background 0.2s; }
+    .submit-btn:hover { background: #e6c14a; }
+
+    /* ПОДВАЛ */
+    .site-footer { background: var(--primary-dark); color: #C7D2E0; padding: 3rem 1rem 1.5rem; border-top: 1px solid rgba(212, 175, 55, 0.3); }
+    .footer-nav { text-align: center; margin-bottom: 2rem; }
+    .footer-nav a { color: #C7D2E0; text-decoration: none; font-size: 0.9rem; margin: 0 0.5rem; transition: color 0.2s; }
+    .footer-nav a:hover { color: var(--accent-gold); }
+    .contact-info { text-align: center; }
+    .org-name { font-weight: bold; font-size: 1rem; color: var(--white); margin-bottom: 0.5rem; }
+    .contact-info a { color: var(--accent-gold); text-decoration: none; }
+    .copyright { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.25rem; margin-top: 2rem; font-size: 0.8125rem; opacity: 0.7; text-align: center; }
+    
+    @media (max-width: 768px) {
+      .site-header img { height: 110px; }
+      .site-title { font-size: 1.5rem; }
+      .main-nav a { margin: 0 0.4rem; font-size: 0.85rem; }
+      .hero-content p.main { text-align: center; }
+      .step-column { padding: 1.5rem; }
+      .forms-wrapper { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <img src="logo.png" alt="Логотип АНО «МАЦ „Защита"»">
+    <div class="site-title">АНО «Межрегиональный антикоррупционный центр „Защита"»</div>
+    <div class="site-subtitle">Правовая помощь • Общественный контроль • Защита прав</div>
+  </header>
+
+  <nav class="main-nav">
+    <a href="index.html">Главная</a>
+    <a href="o-centre.html">О центре</a>
+    <a href="otkryt-priemnuyu.html">Открыть приёмную</a>
+    <a href="sozdat-napravlenie.html">Создать направление</a>
+    <a href="normativy.html">Нормативы</a>
+    <a href="kontakty.html">Контакты</a>
+  </nav>
+
+  <div class="cta-buttons">
+    <a href="obrashchenie.html" class="cta-btn">Подать обращение</a>
+    <a href="soobshchestvo.html" class="cta-btn">Стать членом сообщества</a>
+  </div>
+
+  <!-- БЛОК 1: ГЕРОЙ -->
+  <section class="section section-dark">
+    <div class="container hero-content">
+      <h1>Станьте частью сообщества, которое меняет систему</h1>
+      <p class="sub">Два пути к статусу участника: активное участие в мероприятиях Центра или финансовая поддержка нашей деятельности.</p>
+      <p class="main">Сообщество АНО «МАЦ „Защита"» — это не просто список имён. Это люди, которые объединяются, чтобы защита прав стала доступной каждому. Вы можете выбрать тот формат участия, который вам ближе: <strong>личное участие</strong> (участие в мероприятиях, помощь в организации, работа с обращениями) или <strong>финансовая поддержка</strong> (пожертвование на уставную деятельность). Оба пути ведут к официальному статусу участника сообщества.</p>
+    </div>
+  </section>
+
+  <!-- БЛОК 2: ДВА ПУТИ -->
+  <section class="section section-light">
+    <div class="container">
+      <h2 class="section-title">Выберите свой путь</h2>
+      <div class="cards-grid">
+        <div class="card">
+          <h3>1. Участие в мероприятиях</h3>
+          <p>Вы участвуете в мероприятиях Центра, помогаете в работе с обращениями в приёмных.</p>
+          <ul>
+            <li><strong>Статус участника</strong> присваивается после подтверждённого участия в мероприятии (по решению Организации).</li>
+            <li>Это путь для тех, кто хочет вкладывать время и знания.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>2. Пожертвование на деятельность</h3>
+          <p>Вы делаете добровольный взнос на уставную деятельность Центра.</p>
+          <ul>
+            <li><strong>Минимальная сумма — 5 000 ₽</strong>. Статус участника присваивается в день зачисления средств на счёт Организации.</li>
+            <li>Это путь для тех, кто хочет поддержать систему финансово и получить статус быстро.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- БЛОК 3: ЧТО ДАЁТ СТАТУС -->
+  <section class="section section-white">
+    <div class="container-narrow">
+      <h2 class="section-title">Что вы получаете как участник сообщества?</h2>
+      <p class="section-subtitle">Статус участника — это не просто формальность. Это ваша роль в системе защиты прав.</p>
+
+      <ul class="benefits-list">
+        <li>
+          <strong>Внеочередное рассмотрение обращений</strong>
+          Это главное преимущество. Ваши обращения рассматриваются в приоритетном порядке.
+        </li>
+        <li>
+          <strong>Защита при мошенничестве и экстренная поддержка</strong>
+          Если вы стали жертвой мошенников или взлома счетов, Центр оперативно подготовит и подаст необходимые заявления в правоохранительные органы, а также поможет собрать и оформить документы для банков и иных кредитных организаций с целью минимизации ущерба и оперативного прекращения мошенничества в отношении участника.
+        </li>
+        <li>
+          <strong>Участие в жизни Центра</strong>
+          Вы участвуете в мероприятиях Центра, помогаете в работе с обращениями, можете предлагать идеи и включаться в реализацию проектов.
+        </li>
+        <li>
+          <strong>Доступ к закрытым мероприятиям</strong>
+          Семинары, тренинги, встречи с экспертами и партнёрами Центра, которые не анонсируются публично.
+        </li>
+        <li>
+          <strong>Возможность вести направление или открыть приёмную</strong>
+          Статус участника — это ступень к роли руководителя направления или общественной приёмной.
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- БЛОК 4: КАК СТАТЬ -->
+  <section class="section section-light">
+    <div class="container">
+      <h2 class="section-title">Как получить статус участника</h2>
+      
+      <div class="steps-grid">
+        <div class="step-column">
+          <h3>Путь 1 — Через мероприятия</h3>
+          <ol>
+            <li>Отправьте запрос на участие в мероприятиях через форму в конце страницы.</li>
+            <li>Наш специалист свяжется с вами и зарегистрирует вас.</li>
+            <li>Примите активное участие (или помогите в работе с обращениями в приёмной).</li>
+            <li>После подтверждения участия Организация присваивает вам статус.</li>
+          </ol>
+        </div>
+        <div class="step-column">
+          <h3>Путь 2 — Через пожертвование</h3>
+          <ol>
+            <li>Нажмите кнопку «Поддержать» и заполните краткую анкету в конце страницы.</li>
+            <li>Сделайте перевод на сумму <strong>не менее 5 000 ₽</strong>.</li>
+            <li>После зачисления средств на счёт Организации статус участника присваивается в тот же день.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- БЛОК 5: УСЛОВИЯ -->
+  <section class="section section-white">
+    <div class="container-narrow">
+      <h2 class="section-title">Важные условия</h2>
+      
+      <div class="conditions-box">
+        <ul>
+          <li><strong>Статус действителен 3 месяца</strong> с момента вашего последнего участия в мероприятиях и/или пожертвования. Для продления статуса достаточно любого из этих действий.</li>
+          <li><strong>Философия взноса:</strong> Наша концепция — в синергии. Смысл поддержки Центра — не в оплате будущей юридической помощи, а в создании системы, где защита прав доступна каждому. Ваш взнос — это добровольный вклад в общее дело.</li>
+          <li><strong>Минимальный размер пожертвования, принимаемый Центром — 5 000 ₽.</strong> Сумма может быть изменена решением уполномоченного органа.</li>
+          <li><strong>Проверка пожертвований:</strong> В соответствии с законодательством РФ, все поступающие средства проверяются на предмет экстремизма, иностранного происхождения и иных ограничений.</li>
+          <li><strong>Статус участника не является членством</strong> в понимании ФЗ «О некоммерческих организациях». Это статус активного участника сообщества.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- БЛОК 6: CTA И ФОРМЫ -->
+  <section class="section section-dark">
+    <div class="container">
+      <h2 class="section-title" style="color: var(--white);">Готовы стать частью системы?</h2>
+      <p style="font-size: 1.1rem; color: var(--white); opacity: 0.9; max-width: 700px; margin: 0 auto 2rem; text-align: center;">Выберите удобный путь: примите участие в ближайшем мероприятии или поддержите Центр пожертвованием. После этого вы получите статус участника и доступ ко всем возможностям сообщества.</p>
+      
+      <div class="forms-wrapper">
+        
+        <!-- ФОРМА 1: УЧАСТИЕ В МЕРОПРИЯТИЯХ -->
+        <div class="form-container">
+          <h3>Запрос на участие в мероприятиях</h3>
+          <!-- ВАЖНО: Замените email на свой -->
+          <form action="https://formsubmit.co/ВАША_ПОЧТА@anomaz.ru" method="POST">
+            <input type="hidden" name="_subject" value="Запрос на участие в мероприятиях — сайт anomaz.ru">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://anomaz.ru/thanks.html">
+
+            <div class="form-group">
+              <label for="fio_events">ФИО *</label>
+              <input type="text" id="fio_events" name="ФИО" required placeholder="Иванов Иван Иванович">
+            </div>
+            <div class="form-group">
+              <label for="phone_events">Телефон *</label>
+              <input type="tel" id="phone_events" name="Телефон" required placeholder="+7 (___) ___-__-__">
+            </div>
+            <div class="form-group">
+              <label for="email_events">E-mail *</label>
+              <input type="email" id="email_events" name="Email" required placeholder="example@mail.ru">
+            </div>
+            <div class="form-group">
+              <label for="ref_number">Номер обращения (при наличии)</label>
+              <input type="text" id="ref_number" name="Номер_обращения" placeholder="MAZ-...">
+            </div>
+
+            <label class="checkbox-group">
+              <input type="checkbox" required>
+              <span>Я согласен(на) на обработку персональных данных в соответствии с <a href="politika.html" style="color:var(--accent-gold);">Политикой конфиденциальности</a>.</span>
+            </label>
+
+            <button type="submit" class="submit-btn">Отправить запрос</button>
+          </form>
+        </div>
+
+        <!-- ФОРМА 2: ПОЖЕРТВОВАНИЕ -->
+        <div class="form-container">
+          <h3>Поддержать Центр</h3>
+          <!-- ВАЖНО: Замените email на свой -->
+          <form action="https://formsubmit.co/ВАША_ПОЧТА@anomaz.ru" method="POST">
+            <input type="hidden" name="_subject" value="Пожертвование — сайт anomaz.ru">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://anomaz.ru/thanks.html">
+
+            <div class="form-group">
+              <label for="fio_donate">ФИО *</label>
+              <input type="text" id="fio_donate" name="ФИО" required placeholder="Иванов Иван Иванович">
+            </div>
+            <div class="form-group">
+              <label for="phone_donate">Телефон *</label>
+              <input type="tel" id="phone_donate" name="Телефон" required placeholder="+7 (___) ___-__-__">
+            </div>
+            <div class="form-group">
+              <label for="email_donate">E-mail *</label>
+              <input type="email" id="email_donate" name="Email" required placeholder="example@mail.ru">
+            </div>
+            <div class="form-group">
+              <label for="amount">Сумма перевода (не менее 5 000 ₽) *</label>
+              <input type="number" id="amount" name="Сумма" required min="5000" step="100" placeholder="5000">
+            </div>
+
+            <label class="checkbox-group">
+              <input type="checkbox" required>
+              <span>Я согласен(на) на обработку персональных данных в соответствии с <a href="politika.html" style="color:var(--accent-gold);">Политикой конфиденциальности</a>.</span>
+            </label>
+
+            <button type="submit" class="submit-btn">Поддержать</button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-nav">
+        <a href="index.html">Главная</a>
+        <a href="o-centre.html">О центре</a>
+        <a href="otkryt-priemnuyu.html">Открыть приёмную</a>
+        <a href="sozdat-napravlenie.html">Создать направление</a>
+        <a href="normativy.html">Нормативы</a>
+        <a href="kontakty.html">Контакты</a>
+        <a href="politika.html">Политика конфиденциальности</a>
+      </div>
+      <div class="contact-info">
+        <div class="org-name">АНО «МАЦ „Защита"»</div>
+        <p style="font-size:0.9rem; opacity:0.75; margin:0 0 0.75rem;">Автономная некоммерческая организация «Межрегиональный антикоррупционный центр „Защита"». Краснодар.</p>
+        <p><a href="mailto:info@anomaz.ru">info@anomaz.ru</a></p>
+        <p><a href="tel:+70000000000">+7 (000) 000-00-00</a></p>
+      </div>
+      <div class="copyright">© 2026 АНО «МАЦ „Защита"». Все права защищены.</div>
+    </div>
+  </footer>
+
+</body>
+</html>
