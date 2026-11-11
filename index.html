@@ -4,120 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Главная — АНО «МАЦ „Защита"»</title>
-  <style>
-    :root { --primary-dark: #071D38; --accent-gold: #D4AF37; --bg-light: #F2F5F9; --text-main: #263445; --text-muted: #5A6678; --white: #FFFFFF; --border-gray: #E3E9F2; }
-    * { box-sizing: border-box; }
-    body { margin: 0; font-family: Arial, sans-serif; color: var(--text-main); line-height: 1.6; background: var(--white); }
-    
-    /* ШАПКА */
-    .site-header { background: var(--primary-dark); color: var(--white); padding: 2rem 1rem 1.5rem; text-align: center; }
-    .site-header img { height: 150px; width: auto; display: inline-block; border-radius: 50%; box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
-    .site-title { font-size: 2rem; font-weight: bold; margin: 1rem 0 0.5rem; line-height: 1.25; }
-    .site-subtitle { color: var(--accent-gold); font-size: 1.1rem; margin: 0; }
-    
-    /* МЕНЮ */
-    .main-nav { background: var(--primary-dark); padding: 0 1rem 1.25rem; text-align: center; }
-    .main-nav a { display: inline-block; color: var(--white); text-decoration: none; margin: 0 0.5rem; font-size: 0.95rem; padding-bottom: 4px; border-bottom: 2px solid transparent; transition: color 0.2s; }
-    .main-nav a:hover { color: var(--accent-gold); }
-    .main-nav a.active { border-bottom-color: var(--accent-gold); }
-    
-    /* КНОПКИ В ШАПКЕ */
-    .cta-buttons { background: var(--primary-dark); padding: 0 1rem 1.75rem; text-align: center; }
-    .cta-btn { display: inline-block; border: 1.5px solid var(--accent-gold); color: var(--white); padding: 0.75rem 1.5rem; border-radius: 0.5rem; text-decoration: none; font-weight: bold; font-size: 0.9rem; margin: 0.25rem; transition: all 0.2s; background: transparent; }
-    .cta-btn:hover { background: var(--accent-gold); color: var(--primary-dark); }
-    
-    /* ОБЩИЕ СЕКЦИИ */
-    .section { padding: 3.5rem 1rem; }
-    .section-light { background: var(--bg-light); }
-    .section-white { background: var(--white); }
-    .section-dark { background: var(--primary-dark); color: var(--white); }
-    .container { max-width: 1100px; margin: 0 auto; }
-    .container-narrow { max-width: 850px; margin: 0 auto; }
-    .section-title { color: var(--primary-dark); font-size: 1.875rem; margin: 0 0 1rem; text-align: center; }
-    .section-subtitle { text-align: center; color: var(--text-muted); font-size: 1rem; margin: 0 0 2.5rem; max-width: 700px; margin-left: auto; margin-right: auto; }
-    
-    /* БЛОК 1: ЧТО ТАКОЕ КОРРУПЦИЯ */
-    .law-box { background: var(--bg-light); border-left: 4px solid var(--primary-dark); padding: 1.5rem; border-radius: 0.5rem; margin-bottom: 2.5rem; text-align: left; }
-    .law-label { font-size: 0.85rem; color: var(--primary-dark); font-weight: bold; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 1px; }
-    .law-text { font-size: 1rem; color: var(--text-muted); margin: 0; font-style: italic; }
-    
-    .text-block-left { text-align: left; margin-bottom: 2.5rem; }
-    .text-block-left h3 { color: var(--primary-dark); font-size: 1.3rem; margin-bottom: 1rem; }
-    .text-block-left p { font-size: 1rem; color: var(--text-muted); margin-bottom: 1rem; }
-    .text-block-left ul { font-size: 1rem; color: var(--text-muted); padding-left: 1.5rem; line-height: 1.7; margin-bottom: 1.5rem; }
-    
-    .manifest-quote { background: var(--primary-dark); color: var(--white); padding: 2rem; border-radius: 0.5rem; border-left: 4px solid var(--accent-gold); box-shadow: 0 4px 15px rgba(7,29,56,0.1); }
-    .manifest-quote p { font-size: 1.15rem; font-weight: bold; margin: 0; line-height: 1.7; font-style: italic; }
-    
-    /* БЛОК 2: ДОВЕРИЕ */
-    .grid-trust { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
-    .trust-card { background: var(--white); border: 1px solid var(--border-gray); border-radius: 0.875rem; padding: 1.5rem; text-align: left; border-top: 4px solid var(--accent-gold); }
-    .trust-card h3 { color: var(--primary-dark); font-size: 1.2rem; margin: 0 0 0.5rem; }
-    .trust-card p { font-size: 0.95rem; color: var(--text-muted); margin: 0; }
-    
-    /* БЛОК 3: ДИАЛОГ С ВЛАСТЬЮ */
-    .grid-guarantees { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; text-align: left; margin-top: 2rem; }
-    .guarantee-card { background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 0.75rem; border-left: 3px solid var(--accent-gold); }
-    .guarantee-card h3 { color: var(--accent-gold); font-size: 1.1rem; margin-bottom: 0.5rem; }
-    .guarantee-card p { font-size: 0.9rem; opacity: 0.9; margin: 0; }
-
-    /* БЛОК 4: ВАМ К НАМ */
-    .vam-k-nam-box { background: var(--primary-dark); color: var(--white); border-radius: 1rem; padding: 3rem 2rem; text-align: center; box-shadow: 0 10px 30px rgba(7,29,56,0.15); }
-    .vam-k-nam-box h2 { color: var(--white); font-size: 1.8rem; margin-top: 0; margin-bottom: 1.5rem; }
-    .vam-k-nam-questions { font-size: 1.1rem; opacity: 0.9; margin-bottom: 2rem; line-height: 1.7; }
-    .vam-k-nam-answer { background: rgba(212, 175, 55, 0.1); border: 1px solid var(--accent-gold); border-radius: 0.75rem; padding: 1.5rem; margin-bottom: 2rem; }
-    .vam-k-nam-answer strong { color: var(--accent-gold); font-size: 1.3rem; display: block; margin-bottom: 0.5rem; }
-    .vam-k-nam-answer p { font-size: 1.05rem; margin: 0; }
-    .btn-gold-big { display: inline-block; background: var(--accent-gold); color: var(--primary-dark); padding: 1rem 2.5rem; border-radius: 0.5rem; text-decoration: none; font-weight: bold; font-size: 1.1rem; transition: background 0.2s; }
-    .btn-gold-big:hover { background: #e6c14a; }
-    
-    /* CTA ВНИЗУ */
-    .hero-cta { background: var(--primary-dark); color: var(--white); padding: 3.5rem 1rem; text-align: center; }
-    .hero-cta h2 { margin: 0 0 0.875rem; font-size: 1.75rem; }
-    .hero-cta p { opacity: 0.9; max-width: 640px; margin: 0 auto 1.75rem; font-size: 1.1rem; }
-    .big-btn { display: inline-block; background: var(--accent-gold); color: var(--primary-dark); padding: 0.9375rem 2rem; border-radius: 0.5rem; text-decoration: none; font-weight: bold; font-size: 1.0625rem; transition: background 0.2s; }
-    .big-btn:hover { background: #e6c14a; }
-    
-    /* ПОДВАЛ */
-    .site-footer { background: var(--primary-dark); color: #C7D2E0; padding: 3rem 1rem 1.5rem; border-top: 1px solid rgba(212, 175, 55, 0.3); }
-    .footer-nav { text-align: center; margin-bottom: 2rem; }
-    .footer-nav a { color: #C7D2E0; text-decoration: none; font-size: 0.9rem; margin: 0 0.5rem; transition: color 0.2s; }
-    .footer-nav a:hover { color: var(--accent-gold); }
-    .contact-info { text-align: center; }
-    .org-name { font-weight: bold; font-size: 1rem; color: var(--white); margin-bottom: 0.5rem; }
-    .contact-info a { color: var(--accent-gold); text-decoration: none; }
-    .copyright { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.25rem; margin-top: 2rem; font-size: 0.8125rem; opacity: 0.7; text-align: center; }
-    
-    @media (max-width: 768px) {
-      .site-header img { height: 110px; }
-      .site-title { font-size: 1.5rem; }
-      .main-nav a { margin: 0 0.4rem; font-size: 0.85rem; }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div id="header-container"></div>
 
-  <header class="site-header">
-    <img src="logo.png" alt="Логотип АНО «МАЦ „Защита"»">
-    <div class="site-title">АНО «Межрегиональный антикоррупционный центр „Защита"»</div>
-    <div class="site-subtitle">Правовая помощь • Общественный контроль • Защита прав</div>
-  </header>
-
-  <nav class="main-nav">
-    <a href="index.html" class="active">Главная</a>
-    <a href="o-centre.html">О центре</a>
-    <a href="otkryt-priemnuyu.html">Открыть приёмную</a>
-    <a href="sozdat-napravlenie.html">Создать направление</a>
-    <a href="normativy.html">Нормативы</a>
-    <a href="kontakty.html">Контакты</a>
-  </nav>
-
-  <div class="cta-buttons">
-    <a href="obrashchenie.html" class="cta-btn">Подать обращение</a>
-    <a href="soobshchestvo.html" class="cta-btn">Стать членом сообщества</a>
-  </div>
-
-  <!-- БЛОК 1: ЧТО ТАКОЕ КОРРУПЦИЯ -->
   <section class="section section-white">
     <div class="container-narrow">
       <h2 class="section-title" style="margin-bottom: 2rem;">Что такое коррупция?</h2>
@@ -125,7 +16,6 @@
         <div class="law-label">Юридическое определение (ФЗ-273)</div>
         <p class="law-text">«Злоупотребление служебным положением, дача взятки, получение взятки, злоупотребление полномочиями либо иное незаконное использование физическим лицом своего должностного положения вопреки законным интересам общества и государства в целях получения выгоды».</p>
       </div>
-
       <div class="text-block-left">
         <h3>Но для нас коррупция — это шире</h3>
         <p>Мы понимаем коррупционные проявления как <strong>широкий спектр действий и бездействия</strong>:</p>
@@ -135,30 +25,30 @@
           <li>давление на бизнес и граждан;</li>
           <li>манипулирование процедурами принятия решений;</li>
           <li>сокрытие или искажение информации;</li>
+          <li>произвол монополий;</li>
           <li>иные практики, разрушающие принципы законности, равенства и справедливости.</li>
         </ul>
-        
         <div class="manifest-quote">
-           <p>Как врач борется не с человеком, а с болезнью ослабляющей его, так и мы боремся не против государства, а против явлений, которые ослабляют его эффективность, подрывают доверие общества и нарушают права граждан.</p>
+           <p>Как врач борется не с человеком, а с болезнью ослабляющей его, так и мы боремся не против государства, а против явлений, которые ослабляют его эффективность, тормозят развитие, подрывают доверие общества и нарушают его права.</p>
         </div>
       </div>
-
       <div class="text-block-left" style="margin-bottom: 0;">
         <h3>Борьба с последствиями</h3>
         <p>Под последствиями коррупционных проявлений мы понимаем совокупность негативных правовых, экономических, социальных и репутационных последствий, возникающих вследствие злоупотреблений должностных лиц.</p>
         <p>Наша деятельность направлена на:</p>
         <ul>
-          <li>защиту прав и законных интересов пострадавших лиц и организаций;</li>
-          <li>содействие восстановлению нарушенных прав (включая права собственности и деловой репутации);</li>
-          <li>сопровождение обращений и жалоб, правовую и экспертную поддержку;</li>
-          <li>общественный контроль за рассмотрением выявленных нарушений;</li>
-          <li>снижение негативных социально-экономических и институциональных последствий.</li>
+          <li><strong>Защиту прав и законных интересов:</strong> граждан, предпринимателей и организаций от нарушений, злоупотреблений и произвола.</li>
+          <li><strong>Восстановление нарушенных прав:</strong> включая защиту прав собственности, деловой репутации и иных нематериальных благ.</li>
+          <li><strong>Сопровождение обращений и жалоб:</strong> подготовка заявлений, жалоб, ходатайств и иных документов правового характера.</li>
+          <li><strong>Юридическую и экспертную поддержку:</strong> консультации, анализ документов, помощь в переговорах с органами власти и бизнесом.</li>
+          <li><strong>Общественный контроль:</strong> мониторинг рассмотрения выявленных нарушений и контроль за устранением последствий.</li>
+          <li><strong>Снижение негативных последствий:</strong> социально-экономических, репутационных и институциональных (в том числе помощь в реабилитации и восстановлении доброго имени).</li>
+          <li><strong>Правовое просвещение:</strong> информирование граждан и бизнеса о способах защиты своих прав и механизмах противодействия коррупции.</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- БЛОК 2: ПОЧЕМУ НАМ ДОВЕРЯЮТ -->
   <section class="section section-light">
     <div class="container">
       <h2 class="section-title">Почему нам доверяют</h2>
@@ -180,62 +70,39 @@
     </div>
   </section>
 
-  <!-- БЛОК 3: КОНСТРУКТИВНЫЙ ДИАЛОГ С ВЛАСТЬЮ -->
   <section class="section section-dark">
     <div class="container" style="text-align: center;">
       <h2 style="font-size: 1.875rem; margin-bottom: 1rem; color: var(--white);">Конструктивный диалог с властью</h2>
       <p style="opacity: 0.9; max-width: 750px; margin: 0 auto 2rem; font-size: 1.05rem; color: var(--white);">
-        Мы не строим свою деятельность на конфронтации. Наш приоритет — поиск законных и взаимоприемлемых решений. Мы выступаем как <strong>экспертная площадка</strong>, которая помогает органам власти увидеть системные проблемы и устранить их.
+        Мы не строим свою деятельность на конфронтации. Наш приоритет — поиск законных и взаимоприемлемых решений. <strong>Помощь органам власти увидеть системные проблемы и устранить их.</strong>
       </p>
-      
       <div class="grid-guarantees">
-        <div class="guarantee-card">
-          <h3>📄 Официальные запросы</h3>
-          <p>Направляем мотивированные запросы в профильные ведомства для получения правовой оценки. При выявлении нарушений — инициируем соответствующие проверки.</p>
-        </div>
-        <div class="guarantee-card">
-          <h3>🤝 Участие в рабочих группах</h3>
-          <p>Входим в состав общественных советов и комиссий при органах власти. Наша задача — предложить профессиональные решения, учитывающие интересы граждан и бизнеса.</p>
-        </div>
-        <div class="guarantee-card">
-          <h3>🔍 Общественная экспертиза</h3>
-          <p>Проводим независимую экспертизу проектов нормативных актов и эффективности работы ведомств. Это позволяет предотвратить коррупционные риски ещё на этапе создания правил.</p>
-        </div>
+        <div class="guarantee-card"><h3>📄 Официальные запросы</h3><p>Направляем мотивированные запросы в профильные ведомства для получения правовой оценки. При выявлении нарушений — инициируем соответствующие проверки.</p></div>
+        <div class="guarantee-card"><h3>🤝 Участие в рабочих группах</h3><p>Входим в состав общественных советов и комиссий при органах власти. Наша задача — предложить профессиональные решения, учитывающие интересы граждан и бизнеса.</p></div>
+        <div class="guarantee-card"><h3>🔍 Общественная экспертиза</h3><p>Проводим независимую экспертизу проектов нормативных актов и эффективности работы ведомств. Это позволяет предотвратить коррупционные риски ещё на этапе создания правил.</p></div>
       </div>
-
       <div style="background: rgba(212, 175, 55, 0.1); border: 2px solid var(--accent-gold); border-radius: 1rem; padding: 2rem; margin-top: 2.5rem; max-width: 800px; margin-left: auto; margin-right: auto;">
         <h3 style="color: var(--accent-gold); font-size: 1.4rem; margin-bottom: 1rem;">Наш голос имеет вес</h3>
-        <p style="font-size: 1.05rem; color: var(--white); line-height: 1.7; margin: 0;">
-          Мы не просто направляем запросы — за каждым из них стоит команда профессионалов и поддержка влиятельного сообщества. Благодаря этому ведомства пересматривают свои решения, устраняют нарушения и учитывают наши экспертные заключения при доработке нормативных актов.
-        </p>
-        <p style="font-size: 1.05rem; color: var(--accent-gold); font-weight: bold; margin-top: 1rem; margin-bottom: 0;">
-          Нас слышат. И это меняет ситуацию к лучшему.
-        </p>
+        <p style="font-size: 1.05rem; color: var(--white); line-height: 1.7; margin: 0;">Мы не просто направляем запросы — за каждым из них стоит команда профессионалов и поддержка влиятельного сообщества. Благодаря этому ведомства пересматривают свои решения, устраняют нарушения и учитывают наши экспертные заключения при доработке нормативных актов.</p>
+        <p style="font-size: 1.05rem; color: var(--accent-gold); font-weight: bold; margin-top: 1rem; margin-bottom: 0;">Нас слышат. И это меняет ситуацию к лучшему.</p>
       </div>
     </div>
   </section>
 
-  <!-- БЛОК 4: ВАМ К НАМ -->
   <section class="section section-white">
     <div class="container-narrow">
       <div class="vam-k-nam-box">
         <h2>Когда кажется, что вы остались один на один с системой</h2>
-        
-        <p class="vam-k-nam-questions">
-          Вас обманули мошенники или взломали ваши счета? Вы пострадали от несправедливости или бездействия чиновника, а правоохранительные органы не реагируют? Вам отказывают в возбуждении уголовного дела, и вы не знаете, куда идти дальше? Нужна помощь в реабилитации и восстановлении доброго имени?
-        </p>
-        
+        <p class="vam-k-nam-questions">Вас обманули мошенники или взломали ваши счета? Вы пострадали от несправедливости или бездействия чиновника, а правоохранительные органы не реагируют? Вам отказывают в возбуждении уголовного дела, и вы не знаете, куда идти дальше? Нужна помощь в реабилитации и восстановлении доброго имени? <strong>Ваш бизнес столкнулся с незаконным давлением, рейдерским захватом или проверками?</strong></p>
         <div class="vam-k-nam-answer">
           <strong>Вам к нам.</strong>
-          <p>Мы не оставим вас один на один с системой. Мы оперативно изучим вашу ситуацию, подключим профильных юристов и экспертов, поможем подготовить необходимые документы и сделаем всё, чтобы вас услышали.</p>
+          <p>Мы не оставим вас один на один с системой. За ваше дело возьмется вся команда Центра: профильные юристы, экономисты и специалисты по взаимодействию с госорганами. Мы оперативно изучим ситуацию, подготовим необходимые документы, поможем с подачей заявлений в правоохранительные органы и сделаем всё, чтобы вас услышали.</p>
         </div>
-        
         <a href="obrashchenie.html" class="btn-gold-big">Подать обращение</a>
       </div>
     </div>
   </section>
 
-  <!-- БЛОК 5: НОВОСТИ -->
   <section class="section section-light">
     <div class="container">
       <h2 class="section-title">Новости Центра</h2>
@@ -248,38 +115,18 @@
     </div>
   </section>
 
-  <!-- БЛОК 6: CTA ВНИЗУ -->
   <div class="hero-cta">
     <h2>Нужна помощь Центра?</h2>
     <p>Направьте обращение — мы рассмотрим его и подскажем дальнейшие шаги.</p>
     <a href="obrashchenie.html" class="big-btn">Оставить обращение</a>
   </div>
 
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-nav">
-        <a href="index.html">Главная</a>
-        <a href="o-centre.html">О центре</a>
-        <a href="otkryt-priemnuyu.html">Открыть приёмную</a>
-        <a href="sozdat-napravlenie.html">Создать направление</a>
-        <a href="normativy.html">Нормативы</a>
-        <a href="kontakty.html">Контакты</a>
-        <a href="politika.html">Политика конфиденциальности</a>
-      </div>
-      <div class="contact-info">
-        <div class="org-name">АНО «МАЦ „Защита"»</div>
-        <p style="font-size:0.9rem; opacity:0.75; margin:0 0 0.75rem;">Автономная некоммерческая организация «Межрегиональный антикоррупционный центр „Защита"». Краснодар.</p>
-        <p><a href="mailto:info@anomaz.ru">info@anomaz.ru</a></p>
-        <p><a href="tel:+70000000000">+7 (000) 000-00-00</a></p>
-      </div>
-      <div class="copyright">© 2026 АНО «МАЦ „Защита"». Все права защищены.</div>
-    </div>
-  </footer>
-
+  <div id="footer-container"></div>
+  
+  <script src="script.js"></script>
   <script type="text/javascript" src="https://vk.com/js/api/openapi.js?169"></script>
   <script type="text/javascript">
     VK.Widgets.Group("vk_groups", { mode: 4, wide: 1, height: "600", color1: "FFFFFF", color2: "071D38", color3: "D4AF37" }, ВАШ_ID_СООБЩЕСТВА);
   </script>
-
 </body>
 </html>

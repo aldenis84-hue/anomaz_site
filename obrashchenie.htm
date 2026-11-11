@@ -4,125 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Подать обращение — АНО «МАЦ „Защита"»</title>
+  <link rel="stylesheet" href="style.css">
   <script src="https://smartcaptcha.yandexcloud.net/captcha.js" defer></script>
-  <style>
-    :root { --primary-dark: #071D38; --accent-gold: #D4AF37; --bg-light: #F2F5F9; --text-main: #263445; --text-muted: #5A6678; --white: #FFFFFF; --border-gray: #E3E9F2; }
-    * { box-sizing: border-box; }
-    body { margin: 0; font-family: Arial, sans-serif; color: var(--text-main); line-height: 1.6; background: var(--white); }
-    
-    .site-header { background: var(--primary-dark); color: var(--white); padding: 2rem 1rem 1.5rem; text-align: center; }
-    .site-header img { height: 150px; width: auto; display: inline-block; border-radius: 50%; box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
-    .site-title { font-size: 2rem; font-weight: bold; margin: 1rem 0 0.5rem; line-height: 1.25; }
-    .site-subtitle { color: var(--accent-gold); font-size: 1.1rem; margin: 0; }
-    
-    .main-nav { background: var(--primary-dark); padding: 0 1rem 1.25rem; text-align: center; }
-    .main-nav a { display: inline-block; color: var(--white); text-decoration: none; margin: 0 0.5rem; font-size: 0.95rem; padding-bottom: 4px; border-bottom: 2px solid transparent; transition: color 0.2s; }
-    .main-nav a:hover { color: var(--accent-gold); }
-    
-    .cta-buttons { background: var(--primary-dark); padding: 0 1rem 1.75rem; text-align: center; }
-    .cta-btn { display: inline-block; border: 1.5px solid var(--accent-gold); color: var(--white); padding: 0.75rem 1.5rem; border-radius: 0.5rem; text-decoration: none; font-weight: bold; font-size: 0.9rem; margin: 0.25rem; transition: all 0.2s; background: transparent; }
-    .cta-btn:hover { background: var(--accent-gold); color: var(--primary-dark); }
-    
-    .section { padding: 3.5rem 1rem; } 
-    .section-light { background: var(--bg-light); }
-    .section-dark { background: var(--primary-dark); color: var(--white); }
-    .section-white { background: var(--white); }
-    .container { max-width: 800px; margin: 0 auto; }
-    .container-wide { max-width: 1000px; margin: 0 auto; }
-    .section-title { color: var(--primary-dark); font-size: 1.875rem; margin: 0 0 1rem; text-align: center; }
-    .section-subtitle { text-align: center; color: var(--text-muted); font-size: 1rem; margin: 0 0 2.5rem; }
-    
-    .grid-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
-    .step-card { text-align: center; padding: 1.5rem; background: var(--bg-light); border-radius: 0.75rem; }
-    .step-num { font-size: 2rem; color: var(--accent-gold); font-weight: bold; margin-bottom: 0.5rem; }
-    .step-card h3 { color: var(--primary-dark); font-size: 1.1rem; margin-bottom: 0.5rem; }
-    .step-card p { font-size: 0.9rem; color: var(--text-muted); margin: 0; }
-
-    .grid-guarantees { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; text-align: left; margin-top: 2rem; }
-    .guarantee-card { background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 0.75rem; border-left: 3px solid var(--accent-gold); }
-    .guarantee-card h3 { color: var(--accent-gold); font-size: 1.1rem; margin-bottom: 0.5rem; }
-    .guarantee-card p { font-size: 0.9rem; opacity: 0.9; margin: 0; }
-
-    .form-box { background: var(--white); border: 1px solid var(--border-gray); border-radius: 1rem; padding: 2.5rem 2rem; box-shadow: 0 8px 30px rgba(7, 29, 56, 0.05); }
-    .form-group { margin-bottom: 1.5rem; }
-    .form-group label { display: block; font-weight: bold; margin-bottom: 0.5rem; color: var(--primary-dark); font-size: 0.95rem; }
-    
-    .form-group input[type="text"], .form-group input[type="tel"], .form-group input[type="email"], .form-group textarea, .form-group select { width: 100%; padding: 0.875rem; border: 1px solid var(--border-gray); border-radius: 0.5rem; font-family: inherit; font-size: 1rem; background-color: var(--white); }
-    .form-group select { appearance: none; -webkit-appearance: none; -moz-appearance: none; background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23071D38' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e"); background-repeat: no-repeat; background-position: right 1rem center; background-size: 1em; cursor: pointer; }
-    
-    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline: none; border-color: var(--accent-gold); box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2); }
-    .form-group textarea { min-height: 150px; resize: vertical; }
-    
-    .file-upload-wrapper { border: 2px dashed var(--accent-gold); border-radius: 0.5rem; padding: 1.5rem; text-align: center; background: #fafbfc; cursor: pointer; transition: background 0.2s; }
-    .file-upload-wrapper:hover { background: #f0f4f8; }
-    .file-upload-wrapper input[type="file"] { display: none; }
-    .file-upload-label { cursor: pointer; display: block; }
-    .file-upload-icon { font-size: 2rem; margin-bottom: 0.5rem; }
-    .file-upload-text { font-size: 0.95rem; color: var(--primary-dark); font-weight: bold; }
-    .file-upload-hint { font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem; }
-    .file-name-display { margin-top: 1rem; font-size: 0.85rem; color: var(--text-main); font-weight: bold; word-break: break-all; text-align: left; line-height: 1.4; }
-    
-    .checkbox-group { display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 1.5rem; font-size: 0.875rem; color: var(--text-muted); }
-    .checkbox-group input { margin-top: 0.25rem; width: auto; cursor: pointer; }
-    .submit-btn { display: inline-block; width: 100%; background: var(--accent-gold); color: var(--primary-dark); padding: 1rem; border: none; border-radius: 0.5rem; font-weight: bold; font-size: 1.1rem; cursor: pointer; transition: background 0.2s; }
-    .submit-btn:hover { background: #e6c14a; }
-    .submit-btn:disabled { background: #ccc; cursor: not-allowed; }
-
-    .faq-item { background: var(--white); border-radius: 0.75rem; padding: 1.5rem; margin-bottom: 1rem; border: 1px solid var(--border-gray); }
-    .faq-item h3 { color: var(--primary-dark); font-size: 1.1rem; margin-bottom: 0.5rem; }
-    .faq-item p { font-size: 0.95rem; color: var(--text-muted); margin: 0; }
-
-    .contact-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; }
-    .contact-link { display: inline-block; padding: 1rem 2rem; background: var(--white); border: 1px solid var(--border-gray); border-radius: 0.5rem; text-decoration: none; color: var(--primary-dark); font-weight: bold; min-width: 200px; text-align: center; transition: border-color 0.2s; }
-    .contact-link:hover { border-color: var(--accent-gold); }
-    
-    .site-footer { background: var(--primary-dark); color: #C7D2E0; padding: 3rem 1rem 1.5rem; border-top: 1px solid rgba(212, 175, 55, 0.3); }
-    .footer-nav { text-align: center; margin-bottom: 2rem; }
-    .footer-nav a { color: #C7D2E0; text-decoration: none; font-size: 0.9rem; margin: 0 0.5rem; }
-    .footer-nav a:hover { color: var(--accent-gold); }
-    .contact-info { text-align: center; } .org-name { font-weight: bold; color: var(--white); margin-bottom: 0.5rem; }
-    .contact-info a { color: var(--accent-gold); text-decoration: none; }
-    .copyright { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.25rem; margin-top: 2rem; font-size: 0.8125rem; opacity: 0.7; text-align: center; }
-    
-    @media (max-width: 768px) { 
-      .site-header img { height: 110px; } 
-      .site-title { font-size: 1.5rem; } 
-      .main-nav a { margin: 0 0.4rem; font-size: 0.85rem; } 
-      .form-box { padding: 1.5rem; } 
-      .contact-link { width: 100%; }
-    }
-  </style>
 </head>
 <body>
-
-  <header class="site-header">
-    <img src="logo.png" alt="Логотип АНО «МАЦ „Защита"»">
-    <div class="site-title">АНО «Межрегиональный антикоррупционный центр „Защита"»</div>
-    <div class="site-subtitle">Правовая помощь • Общественный контроль • Защита прав</div>
-  </header>
-
-  <nav class="main-nav">
-    <a href="index.html">Главная</a>
-    <a href="o-centre.html">О центре</a>
-    <a href="otkryt-priemnuyu.html">Открыть приёмную</a>
-    <a href="sozdat-napravlenie.html">Создать направление</a>
-    <a href="normativy.html">Нормативы</a>
-    <a href="kontakty.html">Контакты</a>
-  </nav>
-
-  <div class="cta-buttons">
-    <a href="obrashchenie.html" class="cta-btn">Подать обращение</a>
-    <a href="soobshchestvo.html" class="cta-btn">Стать членом сообщества</a>
-  </div>
+  <div id="header-container"></div>
 
   <section class="section section-white">
     <div class="container-wide">
       <h2 class="section-title">Как проходит рассмотрение</h2>
-      <div class="grid-steps">
-        <div class="step-card"><div class="step-num">1</div><h3>Регистрация</h3><p>Вы получаете номер обращения (квитанцию) сразу после отправки.</p></div>
-        <div class="step-card"><div class="step-num">2</div><h3>Подключение команды</h3><p>Ваше обращение попадает в Центр, где к делу подключаются профильные специалисты. Мы анализируем ситуацию сообща.</p></div>
-        <div class="step-card"><div class="step-num">3</div><h3>Связь</h3><p>Мы связываемся с вами по указанному телефону или почте для уточнений.</p></div>
-        <div class="step-card"><div class="step-num">4</div><h3>Решение</h3><p>Мы предлагаем алгоритм действий или берем дело в работу.</p></div>
+      <div class="grid-trust">
+        <div class="trust-card"><h3>1. Регистрация</h3><p>Вы получаете номер обращения (квитанцию) сразу после отправки.</p></div>
+        <div class="trust-card"><h3>2. Подключение команды</h3><p>Ваше обращение попадает в Центр, где к делу подключаются профильные специалисты. Мы анализируем ситуацию сообща.</p></div>
+        <div class="trust-card"><h3>3. Связь</h3><p>Мы связываемся с вами по указанному телефону или почте для уточнений.</p></div>
+        <div class="trust-card"><h3>4. Решение</h3><p>Мы предлагаем алгоритм действий или берем дело в работу.</p></div>
       </div>
     </div>
   </section>
@@ -131,30 +26,28 @@
     <div class="container-wide" style="text-align: center;">
       <h2 style="font-size: 1.875rem; margin-bottom: 1.5rem; color: var(--white);">Ваша безопасность — наш приоритет</h2>
       <div class="grid-guarantees">
-        <div class="guarantee-card"><h3>Конфиденциальность</h3><p>Мы не передаем ваши персональные данные третьим лицам без вашего согласия. Все обращения строго конфиденциальны.</p></div>
+        <div class="guarantee-card"><h3>Конфиденциальность</h3><p>Мы не передаем ваши персональные данные третьим лицам без вашего согласия.</p></div>
         <div class="guarantee-card"><h3>Безопасность файлов</h3><p>Передача данных защищена. Мы не публикуем ваши документы и не используем их в личных целях.</p></div>
-        <div class="guarantee-card"><h3>Сила экосистемы</h3><p>Вы получаете не просто консультанта, а поддержку всего Центра. В решении вашего вопроса могут участвовать наши эксперты, юристы и опытные предприниматели.</p></div>
+        <div class="guarantee-card"><h3>Сила экосистемы</h3><p>Вы получаете не просто консультанта, а поддержку всего Центра.</p></div>
         <div class="guarantee-card"><h3>🛡 Защита заявителей</h3><p>Сведения о лицах, сообщивших о фактах коррупции, являются строго конфиденциальными. Участники сообщества дополнительно получают право на внеочередное рассмотрение.</p></div>
       </div>
     </div>
   </section>
 
-  <section class="section section-light" id="form-anchor">
+  <section class="section section-light">
     <div class="container">
       <h2 class="section-title">Подать обращение (жалобу)</h2>
       <p class="section-subtitle">Поля со звёздочкой (*) обязательны. Вы можете прикрепить сканы или фото документов.</p>
-      
       <div class="form-box">
         <form action="https://formsubmit.co/ВАША_ПОЧТА@anomaz.ru" method="POST" enctype="multipart/form-data" id="mainForm">
-          
           <input type="hidden" name="_subject" id="email_subject" value="Новое обращение с сайта anomaz.ru">
           <input type="hidden" name="_captcha" value="false"> 
           <input type="hidden" name="_next" value="https://anomaz.ru/thanks.html">
           <input type="hidden" name="Номер_обращения" id="ref_number_field">
-
+          
           <div class="form-group">
-            <label for="direction">Направление обращения *</label>
-            <select id="direction" name="Направление" required>
+            <label>Направление обращения *</label>
+            <select name="Направление" required>
               <option value="" disabled selected>Выберите направление деятельности...</option>
               <option value="Экспертиза судебных дел">Экспертиза судебных дел</option>
               <option value="Защита прав граждан">Защита прав граждан</option>
@@ -165,37 +58,17 @@
               <option value="Иное">Иное</option>
             </select>
           </div>
-
-          <div class="form-group">
-            <label for="name">ФИО / Наименование организации *</label>
-            <input type="text" id="name" name="ФИО" required placeholder="Иванов Иван Иванович">
-          </div>
-
-          <div class="form-group">
-            <label for="phone">Телефон *</label>
-            <input type="tel" id="phone" name="Телефон" required placeholder="+7 (___) ___-__-__">
-          </div>
-
-          <div class="form-group">
-            <label for="email">E-mail (необязательно, для ответа)</label>
-            <input type="email" id="email" name="Email" placeholder="example@mail.ru">
-          </div>
-
-          <div class="form-group">
-            <label for="message">Суть обращения *</label>
-            <textarea id="message" name="Обращение" required placeholder="Подробно опишите ситуацию..."></textarea>
-          </div>
-
+          <div class="form-group"><label>ФИО / Наименование организации *</label><input type="text" name="ФИО" required placeholder="Иванов Иван Иванович"></div>
+          <div class="form-group"><label>Телефон *</label><input type="tel" name="Телефон" required placeholder="+7 (___) ___-__-__"></div>
+          <div class="form-group"><label>E-mail (необязательно)</label><input type="email" name="Email" placeholder="example@mail.ru"></div>
+          <div class="form-group"><label>Суть обращения *</label><textarea name="Обращение" required placeholder="Подробно опишите ситуацию..."></textarea></div>
+          
           <div class="form-group">
             <label>Прикрепить документы (фото, сканы)</label>
             <div class="file-upload-wrapper">
-              <label for="file-upload" class="file-upload-label">
-                <div class="file-upload-icon">📎</div>
-                <div class="file-upload-text">Нажмите, чтобы выбрать или сфотографировать</div>
-                <div class="file-upload-hint">JPG, PNG, PDF, DOC. Фото сожмутся автоматически.</div>
-              </label>
-              <input id="file-upload" type="file" name="Файлы" multiple accept=".jpg,.jpeg,.png,.pdf,.doc,.docx">
-              <div id="file-name-display" class="file-name-display"></div>
+              <label for="file-upload3" class="file-upload-label"><div class="file-upload-icon">📎</div><div class="file-upload-text">Нажмите, чтобы выбрать или сфотографировать</div><div class="file-upload-hint" style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem;">Фото сожмутся автоматически.</div></label>
+              <input id="file-upload3" type="file" name="Файлы" multiple accept=".jpg,.jpeg,.png,.pdf,.doc,.docx">
+              <div id="file-name-display3" class="file-name-display"></div>
             </div>
           </div>
 
@@ -203,11 +76,7 @@
             <div id="captcha-container" class="smart-captcha" data-sitekey="ВАШ_CLIENT_KEY_ЯНДЕКС"></div>
           </div>
 
-          <label class="checkbox-group">
-            <input type="checkbox" required>
-            <span>Я согласен(на) на обработку персональных данных в соответствии с <a href="politika.html">Политикой конфиденциальности</a> (152-ФЗ).</span>
-          </label>
-
+          <label class="checkbox-group"><input type="checkbox" required><span>Я согласен(на) на обработку персональных данных в соответствии с <a href="politika.html">Политикой конфиденциальности</a>.</span></label>
           <button type="submit" class="submit-btn" id="submitBtn">Отправить обращение</button>
         </form>
       </div>
@@ -217,144 +86,53 @@
   <section class="section section-white">
     <div class="container">
       <h2 class="section-title">Частые вопросы</h2>
-      <div class="faq-item"><h3>Можно ли подать обращение анонимно?</h3><p>Вы можете не указывать E-mail. Однако, если вы не оставите телефон или почту, мы не сможем связаться с вами и дать ответ. Для получения помощи лучше оставить хотя бы один контакт.</p></div>
-      <div class="faq-item"><h3>У меня нет документов. Меня примут?</h3><p>Да. Вы можете описать ситуацию своими словами. Наши эксперты подскажут, какие документы нужно запросить и как это сделать. Отсутствие документов на старте — не препятствие.</p></div>
-      <div class="faq-item"><h3>Что делать, если фото не прикрепляется?</h3><p>Если файлы слишком большие или их много, загрузите их на Яндекс.Диск или Облако Mail.ru, откройте доступ по ссылке и просто вставьте ссылку в поле «Суть обращения».</p></div>
+      <div class="trust-card" style="margin-bottom: 1rem; border-top: none; border-left: 4px solid var(--accent-gold);"><h3>Можно ли подать обращение анонимно?</h3><p>Вы можете не указывать E-mail. Однако, если вы не оставите телефон или почту, мы не сможем связаться с вами и дать ответ. Для получения помощи лучше оставить хотя бы один контакт.</p></div>
+      <div class="trust-card" style="margin-bottom: 1rem; border-top: none; border-left: 4px solid var(--accent-gold);"><h3>У меня нет документов. Меня примут?</h3><p>Да. Вы можете описать ситуацию своими словами. Наши эксперты подскажут, какие документы нужно запросить и как это сделать. Отсутствие документов на старте — не препятствие.</p></div>
+      <div class="trust-card" style="margin-bottom: 1rem; border-top: none; border-left: 4px solid var(--accent-gold);"><h3>Что делать, если фото не прикрепляется?</h3><p>Если файлы слишком большие или их много, загрузите их на Яндекс.Диск или Облако Mail.ru, откройте доступ по ссылке и просто вставьте ссылку в поле «Суть обращения».</p></div>
     </div>
   </section>
 
-  <section class="section section-light">
-    <div class="container" style="text-align: center;">
-      <h2 class="section-title">Не хотите писать через форму?</h2>
-      <p class="section-subtitle">Вы можете связаться с нами любым удобным способом.</p>
-      <div class="contact-links">
-        <a href="tel:+70000000000" class="contact-link">📞 Позвонить</a>
-        <a href="mailto:info@anomaz.ru" class="contact-link">✉️ Написать на почту</a>
-        <a href="https://t.me/ВАШ_КАНАЛ" target="_blank" class="contact-link">✈️ Написать в Telegram</a>
-      </div>
-    </div>
-  </section>
-
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-nav">
-        <a href="index.html">Главная</a>
-        <a href="o-centre.html">О центре</a>
-        <a href="otkryt-priemnuyu.html">Открыть приёмную</a>
-        <a href="sozdat-napravlenie.html">Создать направление</a>
-        <a href="normativy.html">Нормативы</a>
-        <a href="kontakty.html">Контакты</a>
-        <a href="politika.html">Политика конфиденциальности</a>
-      </div>
-      <div class="contact-info">
-        <div class="org-name">АНО «МАЦ „Защита"»</div>
-        <p style="font-size:0.9rem; opacity:0.75; margin:0 0 0.75rem;">Автономная некоммерческая организация «Межрегиональный антикоррупционный центр „Защита"». Краснодар.</p>
-        <p><a href="mailto:info@anomaz.ru">info@anomaz.ru</a></p>
-        <p><a href="tel:+70000000000">+7 (000) 000-00-00</a></p>
-      </div>
-      <div class="copyright">© 2026 АНО «МАЦ „Защита"». Все права защищены.</div>
-    </div>
-  </footer>
-
+  <div id="footer-container"></div>
+  <script src="script.js"></script>
   <script>
+    // Логика для формы обращения
     function generateRefNumber() {
-      const now = new Date();
-      const year = now.getFullYear();
-      const month = String(now.getMonth() + 1).padStart(2, '0');
-      const day = String(now.getDate()).padStart(2, '0');
-      const hours = String(now.getHours()).padStart(2, '0');
-      const minutes = String(now.getMinutes()).padStart(2, '0');
-      const seconds = String(now.getSeconds()).padStart(2, '0');
-      return `MAZ-${year}${month}${day}-${hours}${minutes}${seconds}`;
+      const now = new Date(); return `MAZ-${now.getFullYear()}${String(now.getMonth()+1).padStart(2,'0')}${String(now.getDate()).padStart(2,'0')}-${String(now.getHours()).padStart(2,'0')}${String(now.getMinutes()).padStart(2,'0')}${String(now.getSeconds()).padStart(2,'0')}`;
     }
-    
     document.addEventListener('DOMContentLoaded', function() {
-      const refNumber = generateRefNumber();
-      document.getElementById('ref_number_field').value = refNumber;
-      localStorage.setItem('last_ref_number', refNumber);
+      const ref = generateRefNumber(); document.getElementById('ref_number_field').value = ref; localStorage.setItem('last_ref_number', ref);
+    });
+    document.getElementById('mainForm').addEventListener('submit', function() {
+      const dir = document.querySelector('select[name="Направление"]').value;
+      if (dir) document.getElementById('email_subject').value = 'Обращение [' + dir + '] — сайт anomaz.ru';
     });
 
-    const mainForm = document.getElementById('mainForm');
-    const directionSelect = document.getElementById('direction');
-    const emailSubject = document.getElementById('email_subject');
-
-    mainForm.addEventListener('submit', function() {
-      const selectedDirection = directionSelect.value;
-      if (selectedDirection) {
-        emailSubject.value = 'Обращение [' + selectedDirection + '] — сайт anomaz.ru';
-      }
-    });
-
-    const fileInput = document.getElementById('file-upload');
-    const fileDisplay = document.getElementById('file-name-display');
-    const submitBtn = document.getElementById('submitBtn');
-
+    const fileInput = document.getElementById('file-upload3');
+    const fileDisplay = document.getElementById('file-name-display3');
     fileInput.addEventListener('change', async function(e) {
-      const files = e.target.files;
-      if (!files || files.length === 0) return;
-
-      fileDisplay.textContent = 'Обработка файлов, подождите...';
-      fileDisplay.style.color = '#D4AF37';
-      submitBtn.disabled = true;
-
-      const processedFiles = [];
-      
+      const files = e.target.files; if (!files || files.length === 0) return;
+      fileDisplay.textContent = 'Обработка...'; const processedFiles = [];
       for (let i = 0; i < files.length; i++) {
         const file = files[i];
         if (file.type.startsWith('image/')) {
-          try {
-            const compressed = await compressImage(file);
-            processedFiles.push(compressed);
-          } catch (err) {
-            processedFiles.push(file);
-          }
-        } else {
-          processedFiles.push(file);
-        }
+          const compressed = await new Promise((resolve) => {
+            const reader = new FileReader(); reader.readAsDataURL(file);
+            reader.onload = (event) => {
+              const img = new Image(); img.src = event.target.result;
+              img.onload = () => {
+                const canvas = document.createElement('canvas'); let w = img.width, h = img.height;
+                const MAX = 1920; if (w > h) { if (w > MAX) { h *= MAX / w; w = MAX; } } else { if (h > MAX) { w *= MAX / h; h = MAX; } }
+                canvas.width = w; canvas.height = h; canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+                canvas.toBlob((blob) => resolve(new File([blob], file.name.replace(/\.[^/.]+$/, "") + ".jpg", { type: 'image/jpeg' })), 'image/jpeg', 0.7);
+              };
+            };
+          });
+          processedFiles.push(compressed);
+        } else { processedFiles.push(file); }
       }
-
-      const dataTransfer = new DataTransfer();
-      processedFiles.forEach(f => dataTransfer.items.add(f));
-      fileInput.files = dataTransfer.files;
-
-      let names = Array.from(fileInput.files).map(f => `${f.name} (${(f.size / 1024 / 1024).toFixed(2)} МБ)`);
-      fileDisplay.textContent = 'Выбрано: ' + names.join(', ');
-      fileDisplay.style.color = '#263445';
-      submitBtn.disabled = false;
+      const dataTransfer = new DataTransfer(); processedFiles.forEach(f => dataTransfer.items.add(f)); fileInput.files = dataTransfer.files;
+      fileDisplay.textContent = 'Выбрано: ' + Array.from(fileInput.files).map(f => `${f.name} (${(f.size / 1024 / 1024).toFixed(2)} МБ)`).join(', ');
     });
-
-    function compressImage(file) {
-      return new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.onload = function(event) {
-          const img = new Image();
-          img.src = event.target.result;
-          img.onload = function() {
-            const canvas = document.createElement('canvas');
-            let width = img.width;
-            let height = img.height;
-            const MAX_SIZE = 1920;
-            if (width > height) {
-              if (width > MAX_SIZE) { height *= MAX_SIZE / width; width = MAX_SIZE; }
-            } else {
-              if (height > MAX_SIZE) { width *= MAX_SIZE / height; height = MAX_SIZE; }
-            }
-            canvas.width = width;
-            canvas.height = height;
-            const ctx = canvas.getContext('2d');
-            ctx.drawImage(img, 0, 0, width, height);
-            canvas.toBlob((blob) => {
-              if (!blob) return resolve(file);
-              const newFile = new File([blob], file.name.replace(/\.[^/.]+$/, "") + ".jpg", { type: 'image/jpeg', lastModified: Date.now() });
-              resolve(newFile);
-            }, 'image/jpeg', 0.7);
-          };
-          img.onerror = reject;
-        };
-        reader.onerror = reject;
-      });
-    }
   </script>
 </body>
 </html>

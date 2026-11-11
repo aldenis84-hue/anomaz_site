@@ -4,109 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>О центре — АНО «МАЦ „Защита"»</title>
-  <style>
-    :root { --primary-dark: #071D38; --accent-gold: #D4AF37; --bg-light: #F2F5F9; --text-main: #263445; --text-muted: #5A6678; --white: #FFFFFF; --border-gray: #E3E9F2; }
-    * { box-sizing: border-box; }
-    body { margin: 0; font-family: Arial, sans-serif; color: var(--text-main); line-height: 1.6; background: var(--white); }
-    
-    .site-header { background: var(--primary-dark); color: var(--white); padding: 2rem 1rem 1.5rem; text-align: center; }
-    .site-header img { height: 150px; width: auto; display: inline-block; border-radius: 50%; box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
-    .site-title { font-size: 2rem; font-weight: bold; margin: 1rem 0 0.5rem; line-height: 1.25; }
-    .site-subtitle { color: var(--accent-gold); font-size: 1.1rem; margin: 0; }
-    
-    .main-nav { background: var(--primary-dark); padding: 0 1rem 1.25rem; text-align: center; }
-    .main-nav a { display: inline-block; color: var(--white); text-decoration: none; margin: 0 0.5rem; font-size: 0.95rem; padding-bottom: 4px; border-bottom: 2px solid transparent; transition: color 0.2s; }
-    .main-nav a:hover { color: var(--accent-gold); }
-    .main-nav a.active { border-bottom-color: var(--accent-gold); }
-    
-    .cta-buttons { background: var(--primary-dark); padding: 0 1rem 1.75rem; text-align: center; }
-    .cta-btn { display: inline-block; border: 1.5px solid var(--accent-gold); color: var(--white); padding: 0.75rem 1.5rem; border-radius: 0.5rem; text-decoration: none; font-weight: bold; font-size: 0.9rem; margin: 0.25rem; transition: all 0.2s; background: transparent; }
-    .cta-btn:hover { background: var(--accent-gold); color: var(--primary-dark); }
-    
-    .section { padding: 3.5rem 1rem; }
-    .section-light { background: var(--bg-light); }
-    .section-white { background: var(--white); }
-    .container { max-width: 1100px; margin: 0 auto; }
-    .container-narrow { max-width: 850px; margin: 0 auto; }
-    .section-title { color: var(--primary-dark); font-size: 1.875rem; margin: 0 0 1rem; text-align: center; }
-    .section-subtitle { text-align: center; color: var(--text-muted); font-size: 1rem; margin: 0 0 2.5rem; max-width: 700px; margin-left: auto; margin-right: auto; }
-    
-    .manifest-box { background: var(--primary-dark); color: var(--white); border-radius: 1rem; padding: 3rem 2.5rem; position: relative; overflow: hidden; box-shadow: 0 10px 30px rgba(7,29,56,0.15); margin-top: 1rem; }
-    .manifest-box::before { content: "«"; position: absolute; top: -30px; left: 20px; font-size: 12rem; color: rgba(212,175,55,0.08); font-family: serif; }
-    .manifest-text { font-size: 1.3rem; line-height: 1.8; position: relative; z-index: 1; margin-bottom: 1.5rem; font-style: italic; }
-    .manifest-author { font-weight: bold; color: var(--accent-gold); text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem; }
-    
-    .results-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
-    .result-card { background: var(--white); border: 1px solid var(--border-gray); border-radius: 0.875rem; padding: 1.5rem; text-align: left; border-top: 4px solid var(--primary-dark); }
-    .result-card h3 { color: var(--primary-dark); font-size: 1.15rem; margin: 0 0 0.5rem; }
-    .result-card p { font-size: 0.95rem; color: var(--text-muted); margin: 0; }
-
-    .axioms-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
-    .axiom-card { background: var(--white); border: 1px solid var(--border-gray); border-radius: 0.875rem; padding: 1.5rem; border-left: 4px solid var(--accent-gold); }
-    .axiom-num { font-size: 1.5rem; color: var(--accent-gold); font-weight: bold; margin-bottom: 0.5rem; }
-    .axiom-card h3 { color: var(--primary-dark); font-size: 1.15rem; margin: 0 0 0.5rem; }
-    .axiom-card p { font-size: 0.95rem; color: var(--text-muted); margin: 0; }
-    
-    .reception-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
-    .reception-card { background: var(--white); border: 1px solid var(--border-gray); border-radius: 0.875rem; padding: 2rem; }
-    .reception-card h3 { color: var(--primary-dark); font-size: 1.2rem; margin: 0 0 0.8rem; }
-    .reception-card p { font-size: 0.95rem; color: var(--text-muted); margin: 0 0 1rem; }
-    .reception-card ul { margin: 0; padding-left: 1.2rem; color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; }
-    
-    .hero-cta { background: var(--primary-dark); color: var(--white); padding: 3.5rem 1rem; text-align: center; }
-    .hero-cta h2 { margin: 0 0 0.875rem; font-size: 1.75rem; }
-    .hero-cta p { opacity: 0.9; max-width: 640px; margin: 0 auto 1.75rem; font-size: 1.1rem; }
-    .big-btn { display: inline-block; background: var(--accent-gold); color: var(--primary-dark); padding: 0.9375rem 2rem; border-radius: 0.5rem; text-decoration: none; font-weight: bold; font-size: 1.0625rem; transition: background 0.2s; }
-    .big-btn:hover { background: #e6c14a; }
-    
-    .site-footer { background: var(--primary-dark); color: #C7D2E0; padding: 3rem 1rem 1.5rem; border-top: 1px solid rgba(212, 175, 55, 0.3); }
-    .footer-nav { text-align: center; margin-bottom: 2rem; }
-    .footer-nav a { color: #C7D2E0; text-decoration: none; font-size: 0.9rem; margin: 0 0.5rem; transition: color 0.2s; }
-    .footer-nav a:hover { color: var(--accent-gold); }
-    .contact-info { text-align: center; }
-    .org-name { font-weight: bold; font-size: 1rem; color: var(--white); margin-bottom: 0.5rem; }
-    .contact-info a { color: var(--accent-gold); text-decoration: none; }
-    .copyright { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.25rem; margin-top: 2rem; font-size: 0.8125rem; opacity: 0.7; text-align: center; }
-    
-    @media (max-width: 768px) {
-      .site-header img { height: 110px; }
-      .site-title { font-size: 1.5rem; }
-      .main-nav a { margin: 0 0.4rem; font-size: 0.85rem; }
-      .manifest-box { padding: 2rem 1.5rem; }
-      .manifest-text { font-size: 1.1rem; }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <header class="site-header">
-    <img src="logo.png" alt="Логотип АНО «МАЦ „Защита"»">
-    <div class="site-title">АНО «Межрегиональный антикоррупционный центр „Защита"»</div>
-    <div class="site-subtitle">Правовая помощь • Общественный контроль • Защита прав</div>
-  </header>
-
-  <nav class="main-nav">
-    <a href="index.html">Главная</a>
-    <a href="o-centre.html" class="active">О центре</a>
-    <a href="otkryt-priemnuyu.html">Открыть приёмную</a>
-    <a href="sozdat-napravlenie.html">Создать направление</a>
-    <a href="normativy.html">Нормативы</a>
-    <a href="kontakty.html">Контакты</a>
-  </nav>
-
-  <div class="cta-buttons">
-    <a href="obrashchenie.html" class="cta-btn">Подать обращение</a>
-    <a href="soobshchestvo.html" class="cta-btn">Стать членом сообщества</a>
-  </div>
+  <div id="header-container"></div>
 
   <section class="section section-white">
     <div class="container-narrow">
       <h2 class="section-title">Публичная позиция (Манифест)</h2>
-      <div class="manifest-box">
-        <div class="manifest-text">
-          Как врач борется не с человеком, а с болезнью ослабляющей его, так и мы боремся не против государства, а против явлений, которые ослабляют его эффективность, подрывают доверие общества и нарушают права граждан.
-        </div>
-        <div class="manifest-author">Утверждено Решением № 2 единственного учредителя</div>
+      <div class="manifest-quote" style="margin-top: 1rem;">
+        <p>Как врач борется не с человеком, а с болезнью ослабляющей его, так и мы боремся не против государства, а против явлений, которые ослабляют его эффективность, подрывают доверие общества и нарушают права граждан.</p>
+        <p style="font-size: 0.85rem; color: var(--accent-gold); margin-top: 1rem;">Утверждено Решением № 2 единственного учредителя</p>
       </div>
     </div>
   </section>
@@ -115,26 +23,12 @@
     <div class="container">
       <h2 class="section-title">Нас слышат. И это меняет ситуацию.</h2>
       <p class="section-subtitle">Мы измеряем свою работу не количеством написанных писем, а реальными изменениями.</p>
-      
-      <div class="results-grid">
-        <div class="result-card">
-          <h3>Ведомства реагируют</h3>
-          <p>По нашим обращениям проводятся проверки и выдаются предписания об устранении нарушений. Наши запросы не остаются без ответа.</p>
-        </div>
-        <div class="result-card">
-          <h3>Решения пересматриваются</h3>
-          <p>Взаимодействие с прокуратурой и надзорными органами позволяет отменять незаконные акты и восстанавливать справедливость.</p>
-        </div>
-        <div class="result-card">
-          <h3>Командная работа</h3>
-          <p>Мы не работаем поодиночке. Каждое сложное дело проходит через пул экспертов Центра — от юристов до экономистов и специалистов по госорганам. Мы решаем проблему сообща.</p>
-        </div>
+      <div class="grid-trust">
+        <div class="trust-card"><h3>Ведомства реагируют</h3><p>По нашим обращениям проводятся проверки и выдаются предписания об устранении нарушений. Наши запросы не остаются без ответа.</p></div>
+        <div class="trust-card"><h3>Решения пересматриваются</h3><p>Взаимодействие с прокуратурой и надзорными органами позволяет отменять незаконные акты и восстанавливать справедливость.</p></div>
+        <div class="trust-card"><h3>Командная работа</h3><p>Мы не работаем поодиночке. Каждое сложное дело проходит через пул экспертов Центра — от юристов до экономистов и специалистов по госорганам. Мы решаем проблему сообща.</p></div>
       </div>
-
       <div style="text-align: center; margin-top: 2.5rem;">
-        <p style="font-size: 1.1rem; color: var(--primary-dark); font-weight: bold; margin-bottom: 1.5rem;">
-          Наш голос имеет вес. Мы добиваемся того, чтобы к нему прислушивались.
-        </p>
         <a href="obrashchenie.html" class="big-btn">Подать обращение в Центр</a>
       </div>
     </div>
@@ -144,20 +38,19 @@
     <div class="container">
       <h2 class="section-title">Наши принципы</h2>
       <p class="section-subtitle">Базовые принципы, на которых строится вся работа Центра.</p>
-
-      <div class="axioms-grid">
-        <div class="axiom-card"><div class="axiom-num">1</div><h3>Смысл существования</h3><p>Организация существует ради реального результата. Результат — это восстановленные права, защищённые интересы, устранённые нарушения.</p></div>
-        <div class="axiom-card"><div class="axiom-num">2</div><h3>Доверие</h3><p>Главный стратегический актив — доверие общества. Оно держится на законности, профессионализме, открытости и подтверждённых результатах.</p></div>
-        <div class="axiom-card"><div class="axiom-num">3</div><h3>Опора</h3><p>Мы не имеем членства в классическом понимании, но наша независимость держится на поддержке учредителя и активном участии нашего сообщества.</p></div>
-        <div class="axiom-card"><div class="axiom-num">4</div><h3>Долгосрочные интересы</h3><p>Решения принимаются исходя из долгосрочных интересов организации, даже если это требует отказа от краткосрочной выгоды.</p></div>
-        <div class="axiom-card"><div class="axiom-num">5</div><h3>Репутация</h3><p>Репутация дороже краткосрочного успеха в отдельном деле. Никакая победа не оправдывает репутационных потерь.</p></div>
-        <div class="axiom-card"><div class="axiom-num">6</div><h3>Единая система</h3><p>Организация работает по единым стандартам, принципам управления и требованиям к качеству во всех филиалах и приёмных — как офлайн, так и онлайн.</p></div>
-        <div class="axiom-card"><div class="axiom-num">7</div><h3>Приёмная</h3><p>Общественная приёмная — основная единица и главный инструмент взаимодействия с обществом. Качество её работы определяет доверие к организации.</p></div>
-        <div class="axiom-card"><div class="axiom-num">8</div><h3>Воспроизводимость</h3><p>Любой процесс должен быть воспроизводим независимо от исполнителя. Все ключевые процедуры алгоритмизированы и задокументированы.</p></div>
-        <div class="axiom-card"><div class="axiom-num">9</div><h3>Сотрудничество</h3><p>Организация не строит деятельность на конфронтации. Приоритет — законные и взаимоприемлемые решения. Конфликт — следствие защиты прав, когда иные способы исчерпаны.</p></div>
-        <div class="axiom-card"><div class="axiom-num">10</div><h3>Цифры — инструмент</h3><p>Цифровые технологии — инструмент, а не цель. Сначала смысл, потом инструмент. Онлайн-приёмные — это канал, а не самоцель.</p></div>
-        <div class="axiom-card"><div class="axiom-num">11</div><h3>Накопление знаний</h3><p>Каждое дело завершается не только результатом, но и накоплением опыта, который становится стратегическим ресурсом организации.</p></div>
-        <div class="axiom-card"><div class="axiom-num">12</div><h3>Рост</h3><p>Рост — следствие качества работы, доверия и эффективности. Развитие сети приёмных не может быть самоцелью в ущерб качеству или репутации.</p></div>
+      <div class="grid-trust">
+        <div class="trust-card"><h3>1. Смысл существования</h3><p>Организация существует ради реального результата. Результат — это восстановленные права, защищённые интересы, устранённые нарушения.</p></div>
+        <div class="trust-card"><h3>2. Доверие</h3><p>Главный стратегический актив — доверие общества. Оно держится на законности, профессионализме, открытости и подтверждённых результатах.</p></div>
+        <div class="trust-card"><h3>3. Опора</h3><p>Мы не имеем членства в классическом понимании, но наша независимость держится на поддержке учредителя и активном участии нашего сообщества.</p></div>
+        <div class="trust-card"><h3>4. Долгосрочные интересы</h3><p>Решения принимаются исходя из долгосрочных интересов организации, даже если это требует отказа от краткосрочной выгоды.</p></div>
+        <div class="trust-card"><h3>5. Репутация</h3><p>Репутация дороже краткосрочного успеха в отдельном деле. Никакая победа не оправдывает репутационных потерь.</p></div>
+        <div class="trust-card"><h3>6. Единая система</h3><p>Организация работает по единым стандартам, принципам управления и требованиям к качеству во всех филиалах и приёмных — как офлайн, так и онлайн.</p></div>
+        <div class="trust-card"><h3>7. Приёмная</h3><p>Общественная приёмная — основная единица и главный инструмент взаимодействия с обществом. Качество её работы определяет доверие к организации.</p></div>
+        <div class="trust-card"><h3>8. Воспроизводимость</h3><p>Любой процесс должен быть воспроизводим независимо от исполнителя. Все ключевые процедуры алгоритмизированы и задокументированы.</p></div>
+        <div class="trust-card"><h3>9. Сотрудничество</h3><p>Организация не строит деятельность на конфронтации. Приоритет — законные и взаимоприемлемые решения. Конфликт — следствие защиты прав, когда иные способы исчерпаны.</p></div>
+        <div class="trust-card"><h3>10. Цифры — инструмент</h3><p>Цифровые технологии — инструмент, а не цель. Сначала смысл, потом инструмент. Онлайн-приёмные — это канал, а не самоцель.</p></div>
+        <div class="trust-card"><h3>11. Накопление знаний</h3><p>Каждое дело завершается не только результатом, но и накоплением опыта, который становится стратегическим ресурсом организации.</p></div>
+        <div class="trust-card"><h3>12. Рост</h3><p>Рост — следствие качества работы, доверия и эффективности. Развитие сети приёмных не может быть самоцелью в ущерб качеству или репутации.</p></div>
       </div>
     </div>
   </section>
@@ -166,23 +59,10 @@
     <div class="container">
       <h2 class="section-title">Наши общественные приёмные</h2>
       <p class="section-subtitle">Согласно нашему принципу №7, общественная приёмная — это базовая организационная единица и главный инструмент взаимодействия с обществом.</p>
-      
-      <div class="reception-grid">
-        <div class="reception-card">
-          <h3>Офлайн-приёмные</h3>
-          <p>Физические офисы, где граждане и предприниматели могут получить первичную правовую помощь и оставить обращение.</p>
-          <ul><li>Личный приём граждан</li><li>Консультации экспертов</li><li>Помощь в подготовке документов</li></ul>
-        </div>
-        <div class="reception-card">
-          <h3>Онлайн-приёмные</h3>
-          <p>Цифровые каналы взаимодействия: сайт, сообщества в социальных сетях, онлайн-платформы.</p>
-          <ul><li>Форма подачи обращений на сайте</li><li>Ответы на вопросы в ВК и Telegram</li><li>Приём сканов и фотографий документов</li></ul>
-        </div>
-        <div class="reception-card">
-          <h3>Единые стандарты</h3>
-          <p>Независимо от региона и формата (офлайн или онлайн), все приёмные работают по единым правилам и методикам Центра.</p>
-          <ul><li>Единый порядок рассмотрения</li><li>Общая база знаний</li><li>Контроль качества работы</li></ul>
-        </div>
+      <div class="grid-trust">
+        <div class="trust-card"><h3>Офлайн-приёмные</h3><p>Физические офисы, где граждане и предприниматели могут получить первичную правовую помощь и оставить обращение.</p><ul><li>Личный приём граждан</li><li>Консультации экспертов</li><li>Помощь в подготовке документов</li></ul></div>
+        <div class="trust-card"><h3>Онлайн-приёмные</h3><p>Цифровые каналы взаимодействия: сайт, сообщества в социальных сетях, онлайн-платформы.</p><ul><li>Форма подачи обращений на сайте</li><li>Ответы на вопросы в ВК и Telegram</li><li>Приём сканов и фотографий документов</li></ul></div>
+        <div class="trust-card"><h3>Единые стандарты</h3><p>Независимо от региона и формата (офлайн или онлайн), все приёмные работают по единым правилам и методикам Центра.</p><ul><li>Единый порядок рассмотрения</li><li>Общая база знаний</li><li>Контроль качества работы</li></ul></div>
       </div>
     </div>
   </section>
@@ -193,26 +73,7 @@
     <a href="obrashchenie.html" class="big-btn">Оставить обращение</a>
   </div>
 
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-nav">
-        <a href="index.html">Главная</a>
-        <a href="o-centre.html">О центре</a>
-        <a href="otkryt-priemnuyu.html">Открыть приёмную</a>
-        <a href="sozdat-napravlenie.html">Создать направление</a>
-        <a href="normativy.html">Нормативы</a>
-        <a href="kontakty.html">Контакты</a>
-        <a href="politika.html">Политика конфиденциальности</a>
-      </div>
-      <div class="contact-info">
-        <div class="org-name">АНО «МАЦ „Защита"»</div>
-        <p style="font-size:0.9rem; opacity:0.75; margin:0 0 0.75rem;">Автономная некоммерческая организация «Межрегиональный антикоррупционный центр „Защита"». Краснодар.</p>
-        <p><a href="mailto:info@anomaz.ru">info@anomaz.ru</a></p>
-        <p><a href="tel:+70000000000">+7 (000) 000-00-00</a></p>
-      </div>
-      <div class="copyright">© 2026 АНО «МАЦ „Защита"». Все права защищены.</div>
-    </div>
-  </footer>
-
+  <div id="footer-container"></div>
+  <script src="script.js"></script>
 </body>
 </html>
