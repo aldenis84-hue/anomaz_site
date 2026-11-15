@@ -2,8 +2,8 @@ document.addEventListener("DOMContentLoaded", function() {
     // 1. Вставляем шапку, меню и кнопки
     const headerHTML = `
       <header class="site-header">
-        <img src="logo.png" alt="Логотип АНО «МАЦ „Защита"»">
-        <div class="site-title">АНО «Межрегиональный антикоррупционный центр „Защита"»</div>
+        <img src="logo.png" alt="Логотип АНО «Межрегиональный антикоррупционный центр»">
+        <div class="site-title">АНО «Межрегиональный антикоррупционный центр»</div>
         <div class="site-subtitle">Помощь • Контроль • Взаимодействие</div>
         <div class="header-slogan">
           <span>Беда участника центра — наша проблема.</span>
@@ -42,12 +42,12 @@ document.addEventListener("DOMContentLoaded", function() {
             <a href="politika.html">Политика конфиденциальности</a>
           </div>
           <div class="contact-info">
-            <div class="org-name">АНО «МАЦ „Защита"»</div>
-            <p style="font-size:0.9rem; opacity:0.75; margin:0 0 0.75rem;">Автономная некоммерческая организация «Межрегиональный антикоррупционный центр „Защита"». Краснодар.</p>
+            <div class="org-name">АНО «Межрегиональный антикоррупционный центр»</div>
+            <p style="font-size:0.9rem; opacity:0.75; margin:0 0 0.75rem;">Автономная некоммерческая организация «Межрегиональный антикоррупционный центр». Краснодар.</p>
             <p><a href="mailto:info@anomaz.ru">info@anomaz.ru</a></p>
             <p><a href="tel:+70000000000">+7 (000) 000-00-00</a></p>
           </div>
-          <div class="copyright">© 2026 АНО «МАЦ „Защита"». Все права защищены.</div>
+          <div class="copyright">© 2026 АНО «Межрегиональный антикоррупционный центр». Все права защищены.</div>
         </div>
       </footer>
     `;
